@@ -47,7 +47,7 @@ As described as above, you can specify three parameters which will dictate how y
 
 Parameter | Types | Description
 --- | --- | ---
-`clientHandle` | `String` | This should be your bot's handle (your handle is **this**[.ada.suport/app])
+`clientHandle` | `String` | This should be your bot's handle (your handle is **this**[.ada.support/app])
 `options` | `Object` | Has three optional properties, `parentElement`, `customStyles`, and `private`. `parentElement` species where to build the `<iframe>` if the default side window is not desired. `customStyles` takes a string value which can be used to override default styles in the Chat iFrame. `private`, if set to `true`, will create a new private instance of the Chat iFrame (history will be empty).
 `callback` | `Function` | Specifies a function to be called after the `<iframe>` is finished being set up.
 
