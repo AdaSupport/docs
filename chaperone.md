@@ -1,7 +1,9 @@
 # Chaperone
+
 > Chaperone is a small JavaScript application that embeds your **Ada** chat bot into your web page.
 
-![alt text](https://static.ada.support/images/96927f1a-00b3-41c2-b7d5-3f947c22a18b.gif "Ada Animated Gif")
+![ada animated gif](https://user-images.githubusercontent.com/4740147/47372740-5b5dca80-d6b8-11e8-87e7-1b76d48370d8.gif "Ada Animated Gif")
+
 
 ## Getting Started
 Getting started with Ada is easy, just follow the steps below. You can see a working example [here](https://jsfiddle.net/c8m8u2y4/70/).
