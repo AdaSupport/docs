@@ -17,11 +17,11 @@
 5. [Versioning](#versioning)
 6. [Questions](#questions)
 
-## Prerequisites 
-This document is intended for bot specialists and developers with working knowledge of HTML. For some of the advanced setup, basic knowledge of JavaScript is required. The document also assumes you have a hosted web page that you have write access to. 
+## Prerequisites
+This document is intended for bot specialists and developers with working knowledge of HTML. For some of the advanced setup, basic knowledge of JavaScript is required. The document also assumes you have a hosted web page that you have write access to.
 
 ## Getting Started
-Getting started with Ada is easy, just follow the steps below. 
+Getting started with Ada is easy, just follow the steps below.
 
 ### 1. Turn on your bot
 The first step towards adding your Ada Chat Bot to your web page is to turn on the Web Chat integration in your **Settings > Platforms** page.
@@ -40,7 +40,7 @@ Once you have your website all ready-to-go, find the page where you'd like to em
 ></script>
 ```
 
-This snippet handles retrieving the Chaperone script from our CDN. 
+This snippet handles retrieving the Chaperone script from our CDN.
 
 ### 3. Instantiate Chaperone
 The last step is to create a new Chaperone instance with the script below. You should add the script to the bottom of your document (after the `</body>` tag).
@@ -109,7 +109,7 @@ Specifies the Kubernetes cluster to be used. Unless directed by an Ada team memb
 
 
 #### `customStyles` `@type {String}`
-The `customStyles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below. 
+The `customStyles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below.
 
 | WARNING: We do not recommend assigning styles to classes you inspect in the DOM. Class naming is subject to change, and can cause your custom styles to break. |
 | --- |
@@ -233,7 +233,7 @@ Use this method to manipulate the Web Chat `<iframe>`. Use the table below to se
 
 ## FAQ
 #### Q: How do I set up Ada Chat in mobile?
-**A:** Chaperone is only intended to be used in web apps, and is not suitable for native mobile applications. Instead, we recommend you include the URL of your Ada Chat bot [inside a Webview](https://github.com/AdaSupport/docs/blob/nh-chaperone-rewrite/embed-mobile.md). By not using Chaperone you will lose access to the Chaperone options and methods listed above. Fortunately, we have made many of these features available to you via query parameters in your Chat URL. 
+**A:** Chaperone is only intended to be used in web apps, and is not suitable for native mobile applications. Instead, we recommend you include the URL of your Ada Chat bot [inside a Webview](https://github.com/AdaSupport/docs/blob/nh-chaperone-rewrite/embed-mobile.md). By not using Chaperone you will lose access to the Chaperone options and methods listed above. Fortunately, we have made many of these features available to you via query parameters in your Chat URL.
 
 See the table below for a list of available parameters.
 
@@ -242,10 +242,10 @@ Key | Value | Type | Description
 `greeting` | The greeting Answer ID | Query String | Specify a custom greeting
 `language` | A supported ISO 639-1 language | Query String | Set the Web Chat language
 `*` | Any other key is treated as a meta field | Query String | Used to pass meta informaton about an end user
-`private` | NA | Fragment Identifier | Used to forget the Chat session on refresh. In the future this will be reimplemented as a query parameter
+`private` | `true` or 1 | Query String | Used to forget the Chat session on refresh.
 
 #### Q: How do I customize the look of the Ada Chat button?
-**A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles. 
+**A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
 
 Please note that we cannot guarantee custom changes will work with future versions of Chaperone.
 
@@ -260,7 +260,7 @@ button.ada-chat-button {
 [**You can experiment with a working example here.**](https://jsfiddle.net/2jh94oru/3/)
 
 #### Q: How do I have the bot only appear during certain hours?
-**A:** If the bot should only appear during certain times, you will need to wrap you Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard. 
+**A:** If the bot should only appear during certain times, you will need to wrap you Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
 
 #### Q: How do I customize the look and feel of Ada Chat?
 **A:** Basic customization, such as client tint colour, can be modified from the **Settings > General** page of your Ada dashboard. If you require additional customization, you can make use of the [customStyles](#customstyles-type-string) Chaperone option above.
