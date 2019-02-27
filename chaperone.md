@@ -1,4 +1,4 @@
-# Ada Chaperone
+# Ada Chaperone (Legacy)
 
 > Chaperone is a small JavaScript application that embeds your **Ada** Chat bot into your web page.
 
