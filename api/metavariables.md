@@ -20,7 +20,7 @@ Meta Variable deletion for chatters that are **improperly closed** (eg. on tab-c
 
 Parameter | Description | Optionality
 --- | --- | ---
-`variables` | An array. Takes one or more Meta Variable names. Will **not** throw an error if the array is empty. | **needed**
+`variables` | An array. Takes one or more Meta Variable names. Will **not** throw an error if the array is empty. | **required**
 ### Example Request Body
 ```
 {"variables":
@@ -44,16 +44,15 @@ This endpoint therefore serves two purposes, as it must be used to:
 ### Expected Keys
 Parameter | Description | Optionality
 --- | --- | ---
-`variable_expiry_settings` | An object. Its value can be another object with keys `expiry` **AND** `meta_vars`. <br> Its value can also be `null`. | **needed**
-`expiry` | An ISO 8601 formatted datetime (extended notation), with an optional timezone. | **optional**
+`variable_expiry_settings` | An object. Its value can be another object with keys `expiry` **AND** `meta_vars`. <br> Its value can also be `null`. | **required**
+`expiry` | An ISO 8601 formatted datetime (extended notation) | **optional**
 `meta_vars` | An array of Meta Variable names. | **optional**
-`null` | Passing `null` will remove `variable_expiry_settings` from  a chatter. | **optional**
 
 ### Example Request Body: Setting `variable_expiry_settings`
 ```
 {"variable_expiry_settings":
 	{
-		"expiry": "2011-10-05T14:48:00.000Z",
+		"expiry": "2011-10-05T14:48:00",
 		"meta_vars": ["variable_1", "variable_2"]
 	}
 }
