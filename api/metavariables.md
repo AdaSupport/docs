@@ -45,7 +45,7 @@ This endpoint therefore serves two purposes, as it must be used to:
 Parameter | Description | Optionality
 --- | --- | ---
 `variable_expiry_settings` | An object. Its value can be another object with keys `expiry` **AND** `meta_vars`. <br> Its value can also be `null`. | **required**
-`expiry` | An ISO 8601 formatted datetime (extended notation) UTC timestamp | **optional**
+`expiry` | An ISO 8601 formatted datetime (extended notation) UTC timestamp. | **optional**
 `meta_vars` | An array of Meta Variable names. | **optional**
 
 ### Example Request Body: Setting `variable_expiry_settings`
