@@ -39,13 +39,13 @@ Ada's variable-deletion background job runs on a nightly basis, searching for al
 
 This endpoint therefore serves two purposes, as it must be used to:
 1. Set `variable_expiry_settings` on all chatters, which allows an **improperly closed** chatter to be picked up by Ada's nightly background task so that its expired Meta Variables can be deleted;
-1. Remove `variable_expiry_settings` from a given chatter whose Meta Variables are deleted using PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`, so that the chatter isn't picked up by Ada's nightly background task.
+1. Remove `variable_expiry_settings` from a given chatter whose Meta Variables are deleted using PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`, so that the chatter is **not** picked up by Ada's nightly background task.
 
 ### Expected Keys
 Parameter | Description | Optionality
 --- | --- | ---
 `variable_expiry_settings` | An object. Its value can be another object with keys `expiry` **AND** `meta_vars`. <br> Its value can also be `null`. | **required**
-`expiry` | An ISO 8601 formatted datetime (extended notation) | **optional**
+`expiry` | An ISO 8601 formatted datetime (extended notation) UTC timestamp | **optional**
 `meta_vars` | An array of Meta Variable names. | **optional**
 
 ### Example Request Body: Setting `variable_expiry_settings`
