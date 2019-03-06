@@ -7,7 +7,7 @@
 ## Prerequisites
 This document is intended *for developers* with working knowledge of REST APIs and JavaScript. It is assumed that you have write-access to your company's code repository which contains **Ada Embed**.
 
-The following instructions will reference the usage of a **chatter token**. See the [Ada Embed docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information how to get a chatter's token using ```chatterTokenCallback```.
+The following instructions will reference the usage of a **chatter token**. See the [Ada Embed docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information on how to get a chatter's token using ```chatterTokenCallback```.
 
 ## PATCH `/chatters/<chatter-token>/remove_from_storage`
 You must have a chatter token to use this endpoint: `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`.
