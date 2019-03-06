@@ -14,13 +14,13 @@ You must have a chatter token to use this endpoint: `https://<bothandle>.ada.sup
 
 This endpoint allows you to delete a chatter's Meta Variables. It must be used in reaction to an event, such as a chatter being **properly closed** (eg. on user logout).
 
-Meta Variable deletion for chatters that are **improperly closed** (eg. on tab-close, on window-close, on browser crash) are handled by PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`, which is used to set and remove Meta Variable expiry settings on all chatters (see docs below).
+Meta Variable deletion for chatters that are **improperly closed** (eg. on tab-close, on window-close, on browser crash) is handled by PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`. This end point must be used to set and remove Meta Variable expiry settings on all chatters (see docs below).
 
 ### Expected Keys
 
 Parameter | Description | Optionality
 --- | --- | ---
-`variables` | An array that takes one or more Meta Variable names. Will **not** throw an error if the array is empty. | **needed**
+`variables` | An array. Takes one or more Meta Variable names. Will **not** throw an error if the array is empty. | **needed**
 ### Example Request Body
 ```
 {"variables":
