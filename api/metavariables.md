@@ -7,47 +7,47 @@
 ## Prerequisites
 This document is intended *for developers* with working knowledge of REST APIs and JavaScript. It is assumed that you have write-access to your company's code repository which contains **Ada Embed**.
 
-The following instructions will reference the usage of a **chatter token**. See the [Ada Embed docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information how to get back a chatter token using ```chatterTokenCallback```.
+The following instructions will reference the usage of a **chatter token**. See the [Ada Embed docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information how to get a chatter's token using ```chatterTokenCallback```.
 
-## Deleting Meta Variable values in reaction to an event
-For security reasons, you might want to delete the values stored in a specific Meta Variable for a specific chatter, typically in reaction to an event such as a chatter being **properly closed.**
+## PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`
+Deletes a chatter's Meta Variables. To be used in reaction to an event, such as a chatter being **properly closed** (eg. on user logout).
 
-As long as you have a **chatter token** on hand, you can delete the values for one or more Meta Variables stored by Ada for that chatter instance.
-| NOTE: This deletion method is only effective in situations where a chatter is properly closed (ie. on logout). For situations where a chatter is improperly closed (ie. on browser crash, on tab-close, on window-close), please see "Deleting Meta Variable values at a specific time". |
-| --- |
+This endpoint must also be used in conjunction with PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`, which is used to set and unset Meta Variable expiry settings on all chatters (see docs below).
 
-##### PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`
-#
-##### Expected Keys
-This request body of this endpoint expects the following:
+### Expected Keys
+
 Parameter | Description | Optionality
 --- | --- | ---
-`variables` | An array that takes one or more Meta Variable names. | **needed**
-##### Example Request Body
-Here is an example of what you can pass to the endpoint:
+`variables` | An array that takes one or more Meta Variable names. Will not throw error if array is empty. | **needed**
+#### Example Request Body
 ```
 {"variables":
 	["variable_1", "variable_2"]
 }
 ```
+#### Example Response: 200
+```
+{"message" : "Cleared meta variables from chatter storage"}
+```
 
-## Deleting Meta Variable values at a specific time
-When chatters are improperly closed (eg. on browser crash, on tab-close, on window-close), Meta Variable values cannot be immediately deleted. In such instances, the deletion task will fall to a background job run by Ada every 24 hours.
+## PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`
+When chatters are improperly closed (eg. on browser crash, on tab-close, on window-close), its Meta Variables cannot be immediately deleted. In such instances, the deletion task will fall to a background job run by Ada every 24 hours.
 
-Ada's variable-deletion backgroud job runs on a nightly basis, searching for all chatter instances with "expired" Meta Variables. A variable is considered expired if the date and time has already passed in relation to the date and time at which Ada's background job is run. The job will delete the values of these expired Meta Variables and remove the "expiry settings" from a given chatter.
+Ada's variable-deletion background job runs on a nightly basis, searching for all chatter instances with "expired" Meta Variables. The job will delete the values of these expired Meta Variables and remove the "expiry settings" from a given chatter.
 
-##### PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`
-#
-##### Expected Keys
-This request body of this endpoint expects the following:
+This endpoint therefore serves two purposes, as it must be used to:
+1. Set `variable_expiry_settings` on all chatters, which allows an **improperly closed** chatter to be picked up by Ada's nightly background task so that its expired Meta Variables can be deleted;
+1. Remove `variable_expiry_settings` from a given chatter whose Meta Variables are deleted using PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`.
+
+### Expected Keys
 Parameter | Description | Optionality
 --- | --- | ---
-`variable_expiry_settings` | An object that has two properties, `expiry` and `meta_vars`. | **needed**
-`expiry` | An ISO 8601 formatted datetime (extended notation), with an optional timezone. | **needed**
-`meta_vars` | An array of Meta Variable names. | **needed**
+`variable_expiry_settings` | An object. Its value can be another object with the properties `expiry` **AND** `meta_vars`. <br> Its value can also be `null`. | **needed**
+`expiry` | An ISO 8601 formatted datetime (extended notation), with an optional timezone. | **optional**
+`meta_vars` | An array of Meta Variable names. | **optional**
+`null` | Passing `null` will remove `variable_expiry_settings` from  a chatter. | **optional**
 
-##### Request body
-The body of the request looks like this:
+#### Example Request Body: Setting `variable_expiry_settings`
 ```
 {"variable_expiry_settings":
 	{
@@ -56,7 +56,15 @@ The body of the request looks like this:
 	}
 }
 ```
-
+#### Example Request Body: Removing `variable_expiry_settings`
+```
+{"variable_expiry_settings": null}
+```
+#### Example Response: 200
+This response applies to both setting and removing `variable_expiry_settings`.
+```
+{"message" : "Chatter meta variable expiry updated"}
+```
 
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
