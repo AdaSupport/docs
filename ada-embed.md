@@ -59,7 +59,7 @@ Specifies a callback function to be called when the Embed script has finished se
     adaReadyCallback: () => {
       console.log("Ada Embed is done setting up. Chat support is now available.");
     },
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -74,7 +74,7 @@ Specifies a callback function to be called when the Chatter has been set. The Ch
     chatterTokenCallback: (chatter) => {
       console.log("Do something with chatter token: ", chatter);
     },
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -82,6 +82,15 @@ Specifies a callback function to be called when the Chatter has been set. The Ch
 #### `cluster` `@type {String}`
 Specifies the Kubernetes cluster to be used. Unless directed by an Ada team member, you will not need to change this value.
 
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    cluster: "ca",
+    // ...The rest of your settings here
+  }
+</script>
+```
 
 #### `styles` `@type {String}`
 The `styles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below.
@@ -114,7 +123,7 @@ Selector | Description
 <script type="text/javascript">
   window.adaSettings = {
     styles: "*{font-size: 14px !important;}#message-input{background-color: white; border: 1px solid #c1c1c1;}",
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -127,7 +136,7 @@ This can be used to customize the greeting messages that new users see. This is 
 <script type="text/javascript">
   window.adaSettings = {
     greeting: "5c59aaabd8269e0339979014",
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -140,7 +149,7 @@ When set to `true`, this will prevent the default mask from appearing over top o
 <script type="text/javascript">
   window.adaSettings = {
     hideMask: true,
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -153,7 +162,7 @@ Takes in a language code to programatically set the bot language. Languages must
 <script type="text/javascript">
   window.adaSettings = {
     language: "fr",
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -168,8 +177,8 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
     metaFields: {
       phone_number: "(123) 456-7890",
       name: "Ada Lovelace"
-    }
-    ... // The rest of your settings here
+    },
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -193,7 +202,7 @@ Specifies where to mount the `<iframe>` if the default side drawer is not desire
   <script type="text/javascript">
     window.adaSettings = {
       parentElement: document.getElementById("custom-iframe"),
-      ... // The rest of your settings here
+      // ...The rest of your settings here
     }
   </script>
 </head>
