@@ -293,7 +293,7 @@ Key | Value | Description
 https://ada-example.ada.support/chat/?language=fr&name=Ada
 ```
 
-##### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
+#### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
 #### Q: How do I customize the look of the Ada Chat button?
 **A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
