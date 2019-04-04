@@ -277,7 +277,7 @@ adaEmbed.toggle();
 
 ## FAQ
 #### Q: How do I set up Ada Chat in mobile?
-**A:** Ada Embed is currently only available as a Web App. For developers looking to integrate Ada into a mobile application, we recommend you include the URL of your Ada Chat bot directly [inside a Webview](https://github.com/AdaSupport/docs/blob/nh-chaperone-rewrite/embed-mobile.md). By not using Ada Embed you will lose access to the actions and settings interface detailed above. Fortunately, we have made many of these features available to you via query parameters in your Chat URL.
+**A:** Ada Embed is currently only available as a Web App. For developers looking to integrate Ada into a mobile application, we recommend you include the URL of your Ada Chat bot directly inside a Webview. By not using Ada Embed you will lose access to the actions and settings interface detailed above. Fortunately, we have made many of these features available to you via query parameters in your Chat URL.
 
 See the table below for a list of available parameters.
 
