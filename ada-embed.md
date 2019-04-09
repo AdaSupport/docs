@@ -188,6 +188,7 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 
 Name | Description | Will be sanitized | Sanitized version
 --- | --- | --- | ---
+`phone` | Does not contain capitalized letters, special characters, whitespace, underscores or periods. **Recommended format**. | **No** | `phone`
 `phone_number` | Contains an underscore. Does not contain capitalized letters, special characters, whitespace or periods. **Recommended format**. | **No** | `phone_number`
 `phone number` | Contains whitespace. Does not contain capitalized letters, special characters, periods or underscores. **Not recommended.** | **Yes** | `phone_number`
 `PHONE NUMBER` | Contains whitespace and capitalized letters. Does not contain special characters or periods. **Not recommended.** | **Yes** | `phone_number`
@@ -302,7 +303,7 @@ Key | Value | Description
 --- | --- | ---
 `greeting` | The greeting Answer ID |  Specify a custom greeting
 `language` | A supported ISO 639-1 language |  Set the Web Chat language
-`*` | Any other key is treated as a meta field | Used to pass meta informaton about an end user
+`*` | Any other key is treated as a [meta field](#metafields-type-object) | Used to pass meta informaton about an end user
 `private` | `true` or 1 | Used to forget the Chat session on refresh.
 
 **Example:**
