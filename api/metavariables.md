@@ -46,7 +46,7 @@ Parameter | Description | Optionality
 	["variable_1", "variable_2"]
 }
 ```
-#### Example Response: 200
+### Example Response: 200
 ```
 {"message" : "Cleared meta variables from chatter storage"}
 ```
