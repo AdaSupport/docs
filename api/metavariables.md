@@ -7,7 +7,21 @@
 ## Prerequisites
 This document is intended *for developers* with working knowledge of REST APIs and JavaScript. It is assumed that you have write-access to your company's code repository which contains **Ada Embed**.
 
-The following instructions will reference the usage of a **chatter token**. See the [Ada Embed docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information on how to get a chatter's token using ```chatterTokenCallback```.
+The following instructions will reference the usage of a **chatter token**. See the [Ada EmbedScript docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information on how to get a chatter's token using ```chatterTokenCallback```.
+
+The following instructions also abide by the assumption that any meta variable you have previously passed to Ada via EmbedScript - whether by [query paramaters](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#faq), the [setMetaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#setmetafieldsmetafields-param-object) action or the [metaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#metafields-type-object) settings object - only consist of sanitized names.
+
+Because unsanitized meta variable names are sanitized by Ada's backend, searching for - and removing - unsanitized variables will not be possible and may result in unexpected issues.
+
+Name | Description | Will be sanitized | Sanitized version
+--- | --- | --- | ---
+`phone_number` | A string. Contains an underscore. Does not contain capitalized letters, special characters, whitespace or periods. **Recommended format**. | **No** | `phone_number`
+`phone number` | A string. Contains whitespace. Does not contain capitalized letters, special characters, periods or underscores. | **Yes** | `phone_number`
+`PHONE NUMBER` | A string. Contains whitespace and capitalized letters. Does not contain special characters or periods. | **Yes** | `phone_number`
+`phone.number` | A string. Contains a period. Does not contain capitalized letters, special characters, whitespace or periods. | **Yes** | `phone_number`
+`phone _number` | A string. Contains whitespace and an underscore. Does not contain capitalized letters, special characters or periods. | **Yes** | `phone__number`
+`phone😡number` | A string. Contains an emoji. Does not contain capitalized letters, special characters, whitespace, periods or underscores. | **No**, but will cause other issues. | `phone😡number`
+`phone!number` | A string. Contains a special character. Does not contain capitalized letters, whitespace, periods or underscores. | **No**, but not recommended. | `phone!number`
 
 ## PATCH `/chatters/<chatter-token>/remove_from_storage`
 You must have a chatter token to use this endpoint: `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`.
