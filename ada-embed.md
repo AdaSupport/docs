@@ -183,6 +183,23 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 </script>
 ```
 
+
+**Note**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
+
+Name | Description | Will be sanitized | Sanitized version
+--- | --- | --- | ---
+`phone` | Does not contain capitalized letters, special characters, whitespace, underscores or periods. **Recommended format**. | **No** | `phone`
+`phone_number` | Contains an underscore. Does not contain capitalized letters, special characters, whitespace or periods. **Recommended format**. | **No** | `phone_number`
+`phone number` | Contains whitespace. Does not contain capitalized letters, special characters, periods or underscores. **Not recommended.** | **Yes** | `phone_number`
+`PHONE NUMBER` | Contains whitespace and capitalized letters. Does not contain special characters or periods. **Not recommended.** | **Yes** | `phone_number`
+`phone.number` | Contains a period. Does not contain capitalized letters, special characters, whitespace or periods. **Not recommended.** | **Yes** | `phone_number`
+`phone _number` | Contains whitespace and an underscore. Does not contain capitalized letters, special characters or periods. **Not recommended.** | **Yes** | `phone__number`
+`phone😡number` | Contains an emoji. Does not contain capitalized letters, special characters, whitespace, periods or underscores. **Not recommended**. | **No**, but will cause other issues. | `phone😡number`
+`phone!number` | Contains a special character. Does not contain capitalized letters, whitespace, periods or underscores. **Not recommended.** | **No** | `phone!number`
+`phone%20number` (passed in via [queryParams](#FAQ)) | Contains URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **Yes**| `phone_number`
+`phone%20number` (passed in via [setMetaFields](#setmetafieldsmetafields-param-object) action) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
+`phone%20number` (passed in via [metaFields](#metafields-type-object) settings object) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
+
 #### `mobileOverlay` `@type {Boolean}`
 By default, the Web Chat will open as an overlay over your site on mobile devices. If you'd prefer to have it open in a new window, set this option to `false`. Note that setting to `false` will prevent the following features from working:
 - [adaReadyCallback](#adareadycallback-type-function)
@@ -247,6 +264,7 @@ adaEmbed.setMetaFields({
   name: "Ada Lovelace"
 });
 ```
+**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
 
 #### `start(adaSettings)` `@param {Object}`
 Used to add the Ada Embed interface to your page. Takes in an optional object for setting customization.
@@ -285,13 +303,14 @@ Key | Value | Description
 --- | --- | ---
 `greeting` | The greeting Answer ID |  Specify a custom greeting
 `language` | A supported ISO 639-1 language |  Set the Web Chat language
-`*` | Any other key is treated as a meta field | Used to pass meta informaton about an end user
+`*` | Any other key is treated as a [meta field](#metafields-type-object) | Used to pass meta informaton about an end user
 `private` | `true` or 1 | Used to forget the Chat session on refresh.
 
 **Example:**
 ```
 https://ada-example.ada.support/chat/?language=fr&name=Ada
 ```
+**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
 
 #### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
