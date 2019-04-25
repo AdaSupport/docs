@@ -62,7 +62,7 @@ This endpoint allows you to delete a chatter's Meta Variables. It must be used i
 
 Parameter | Description | Optionality
 --- | --- | ---
-`variables` | An array. Takes one or more Meta Variable names. Will **not** throw an error if the array is empty. | **required**
+`variables` | An array. Takes one or more Meta Variable names. Will **not** throw an error if the array is empty or if variable names are incorrect/non-existent.  | **required**
 ### Example Request Body
 ```
 {"variables":
@@ -94,7 +94,7 @@ Parameter | Description | Optionality
 --- | --- | ---
 `variable_expiry_settings` | An object. Its value can be another object with keys `expiry` **AND** `meta_vars`. <br> Its value can also be `null`. | **required**
 `expiry` | An ISO 8601 formatted datetime (extended notation) UTC timestamp. Eg. *2011-10-05T14:48:00* | **optional**
-`meta_vars` | An array of Meta Variable names. | **optional**
+`meta_vars` | An array of Meta Variable names. Will **not** throw an error if the array is empty or if variable names are incorrect/non-existent. | **optional**
 
 ### Example Request Body: Setting `variable_expiry_settings`
 ```
