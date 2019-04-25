@@ -108,8 +108,7 @@ Parameter | Description | Optionality
 Given that you will likely want to dynamically set the value of **expiry** in the request body, it may be useful to do something along the lines of:
 ```
 # Get time 24 hours from current time
-const expiryTime = new Date
-new Date().getTime() + (24 * 60 * 60 * 1000)
+const expiryTime = new Date(new Date().getTime() + (24 * 60 * 60 * 1000)
 ).toISOString();
 ```
 and then pass *expiryTime* as the value of **expiry** in the request body like so:
