@@ -11,7 +11,7 @@ The following instructions will reference the usage of a **chatter token**. See 
 
 The following instructions also abide by the assumption that any meta variable you have previously passed to Ada via EmbedScript - whether by [query paramaters](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#faq), the [setMetaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#setmetafieldsmetafields-param-object) action or the [metaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#metafields-type-object) settings object - only consist of sanitized names.
 
-Because unsanitized meta variable names are sanitized by Ada's backend, searching for - and removing - unsanitized variables using the endpoints described below will not be possible (and may result in unexpected issues).
+Because unsanitized meta variable names are sanitized by Ada's backend, searching for - and removing - **unsanitized** variables using the endpoints described below will not be possible (and may result in unexpected issues).
 
 Name | Description | Will be sanitized | Sanitized version
 --- | --- | --- | ---
@@ -32,9 +32,9 @@ Name | Description | Will be sanitized | Sanitized version
 ## PATCH `/chatters/<chatter-token>/remove_from_storage`
 You must have a chatter token to use this endpoint: `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`.
 
-This endpoint allows you to delete a chatter's Meta Variables. It must be used in reaction to an event, such as a chatter being **properly closed** (eg. on user logout).
+(See the [Ada EmbedScript docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information on how to get a chatter's token using ```chatterTokenCallback```.)
 
-Meta Variable deletion for chatters that are **improperly closed** (eg. on tab-close, on window-close, on browser crash) is handled by PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`. This endpoint must be used to set and remove Meta Variable expiry settings on all chatters (see docs below).
+This endpoint allows you to delete a chatter's Meta Variables. It must be used in reaction to an event, such as a chatter being **properly closed** (eg. on user logout).
 
 ### Expected Keys
 
@@ -51,6 +51,7 @@ Parameter | Description | Optionality
 ```
 {"message" : "Cleared meta variables from chatter storage"}
 ```
+Meta Variable deletion for chatters that are **improperly closed** (eg. on tab-close, on window-close, on browser crash) is handled by PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`. This endpoint must be used to set and remove Meta Variable expiry settings on all chatters (see docs below).
 
 ## PATCH `/chatters/<chatter-token>/set_expiry`
 When chatters are improperly closed (eg. on browser crash, on tab-close, on window-close), their Meta Variables cannot be immediately deleted. In such instances, the deletion task will fall to a background job run by Ada every 24 hours.
@@ -59,7 +60,7 @@ Ada's variable-deletion background job runs on a nightly basis, searching for al
 
 This endpoint therefore serves two purposes, as it must be used to:
 1. Set `variable_expiry_settings` on all chatters, which allows an **improperly closed** chatter to be picked up by Ada's nightly background task so that its expired Meta Variables can be deleted;
-1. Remove `variable_expiry_settings` from a given chatter whose Meta Variables are deleted using PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`, so that the chatter is **not** picked up by Ada's nightly background task.
+1. Remove `variable_expiry_settings` from a given chatter whose Meta Variables have been deleted using PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage` (see docs above), so that said chatter is **not** picked up by Ada's nightly background task.
 
 ### Expected Keys
 Parameter | Description | Optionality
