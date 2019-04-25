@@ -34,7 +34,7 @@ Deleting Meta Variables takes a few different steps. Here is a high-level overvi
 
 	This step is responsible for setting a list of Meta Variables that need to be deleted, in addition to setting an expiry time. (The expiry time is used by Ada's nightly task to handle cases where Meta Variables are not properly deleted).
 
-	See [Setting and removing variable_expiry_settings](#2-Setting-and-removing-*variable_expiry_settings).
+	See [Setting and removing variable_expiry_settings](#2-Setting-and-removing-variable-expiry-settings).
 
 1. Delete any specified Meta Variables for a given chatter upon successful "session end" (eg. logout). To do this, make a PATCH request to `/chatters/<chatter-token>/remove_from_storage`.
 
@@ -44,7 +44,7 @@ Deleting Meta Variables takes a few different steps. Here is a high-level overvi
 
 	This step is to ensure that Meta Variables that have already been successfully deleted in step 2 are not caught again by Ada's nightly deletion task.
 
-	See [Setting and removing variable_expiry_settings](#2-Setting-and-removing-*variable_expiry_settings).
+	See [Setting and removing variable_expiry_settings](#2-Setting-and-removing-variable-expiry-settings).
 
 
 
@@ -73,9 +73,9 @@ Parameter | Description | Optionality
 ```
 {"message" : "Cleared meta variables from chatter storage"}
 ```
-Ada's nightly deletion task [(see docs below)] (#2-Setting-and-removing-*variable_expiry_settings) handles Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
+Ada's nightly deletion task [(see docs below)] (#2-Setting-and-removing-variable-expiry-settings) handles Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
 
-## 2. Setting and removing *variable_expiry_settings*
+## 2. Setting and removing variable expiry settings
 
 You must have a [chatter token](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) to use this endpoint:
 ### PATCH `https:/<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`
