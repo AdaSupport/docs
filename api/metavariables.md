@@ -52,7 +52,7 @@ Deleting Meta Variables takes a few different steps. Here is a high-level overvi
 
 ## 1. Deleting Meta Variables
 You must have a [chatter token](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) to use this endpoint:
-### PATCH `https:/<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`
+### PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`
 
 
 This endpoint allows you to delete a chatter's Meta Variables. It must be used in reaction to an event, such as a chatter session being **properly ended** (eg. on user logout).
@@ -78,7 +78,7 @@ Ada's nightly deletion task works with the [set_expiry endpoint (see docs below)
 ## 2. Setting and removing variable expiry settings
 
 You must have a [chatter token](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) to use this endpoint:
-### PATCH `https:/<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`
+### PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`
 
 When chatter sessions have not been properly ended (eg. on browser crash, on tab-close, on window-close), their Meta Variables cannot be immediately deleted by the [deletion endpoint](#1-Deleting-Meta-Variables). In such cases, the deletion task will fall to a nightly background task by Ada every 24 hours.
 
