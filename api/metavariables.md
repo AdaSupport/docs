@@ -32,7 +32,7 @@ Deleting Meta Variables takes a few different steps. Here is a high-level overvi
 
 1. Set Meta Variable "expiry settings" on all chatter instances by making a PATCH request to `/chatters/<chatter-token>/set_expiry`.
 
-	This step is responsible for setting a list of Meta Variables that need to be deleted, in addition to setting an expiry time. (The expiry time is used by Ada's nightly task to handle cases where Meta Variables are not properly deleted).
+	This step is responsible for setting a list of Meta Variables that need to be deleted, in addition to setting an expiry time. (The expiry time is used by Ada's nightly deletion task to handle cases where Meta Variables are not properly deleted).
 
 	See [Setting and removing variable_expiry_settings](#2-Setting-and-removing-variable-expiry-settings).
 
@@ -73,7 +73,7 @@ Parameter | Description | Optionality
 ```
 {"message" : "Cleared meta variables from chatter storage"}
 ```
-Ada's nightly deletion task [(see docs below)] (#2-Setting-and-removing-variable-expiry-settings) handles Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
+Ada's nightly deletion task [Setting and removing variable_expiry_settings](#2-Setting-and-removing-variable-expiry-settings) handles Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
 
 ## 2. Setting and removing variable expiry settings
 
