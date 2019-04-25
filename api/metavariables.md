@@ -73,7 +73,7 @@ Parameter | Description | Optionality
 ```
 {"message" : "Cleared meta variables from chatter storage"}
 ```
-Ada's nightly deletion task [Setting and removing variable_expiry_settings](#2-Setting-and-removing-variable-expiry-settings) handles Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
+Ada's nightly deletion task works with the [set_expiry endpoint (see docs below)](#2-Setting-and-removing-variable-expiry-settings) to handle Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
 
 ## 2. Setting and removing variable expiry settings
 
