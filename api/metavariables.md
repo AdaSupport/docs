@@ -11,11 +11,7 @@ The following instructions will reference the usage of a **chatter token**. See 
 
 The following instructions also abide by the assumption that any meta variable you have previously passed to Ada via EmbedScript - whether by [query paramaters](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#faq), the [setMetaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#setmetafieldsmetafields-param-object) action or the [metaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#metafields-type-object) settings object - only consist of sanitized names.
 
-<<<<<<< HEAD
 Because unsanitized meta variable names are sanitized by Ada's backend, searching for - and removing - **unsanitized** variables using the endpoints described below will not be possible (and may result in unexpected issues).
-=======
-Because unsanitized meta variable names are sanitized by Ada's backend, searching for - and removing - unsanitized variables using the endpoints described below will not be possible (and may result in unexpected issues).
->>>>>>> master
 
 Name | Description | Will be sanitized | Sanitized version
 --- | --- | --- | ---
