@@ -4,6 +4,9 @@
 
 ![ada animated gif](https://user-images.githubusercontent.com/4740147/47372740-5b5dca80-d6b8-11e8-87e7-1b76d48370d8.gif "Ada Animated Gif")
 
+## **Example Code**
+[See example code at JSFiddle](https://jsfiddle.net/asyi4/o62dt0sw/)
+
 ## **Prerequisites**
 This document is intended *for developers* with working knowledge of REST APIs and JavaScript. It is assumed that you have write-access to your company's code repository which contains **Ada Embed**.
 
@@ -19,6 +22,7 @@ Name | Description | Will be sanitized | Sanitized version
 `phone_number` | Contains an underscore. Does not contain capitalized letters, special characters, whitespace or periods. **Recommended format**. | **No** | `phone_number`
 `phone number` | Contains whitespace. Does not contain capitalized letters, special characters, periods or underscores. **Not recommended.** | **Yes** | `phone_number`
 `PHONE NUMBER` | Contains whitespace and capitalized letters. Does not contain special characters or periods. **Not recommended.** | **Yes** | `phone_number`
+`Phone` | Contains capitalized letters. Does not contain whitespace, special characters or periods. **Not recommended.** | **Yes** | `phone`
 `phone.number` | Contains a period. Does not contain capitalized letters, special characters, whitespace or periods. **Not recommended.** | **Yes** | `phone_number`
 `phone _number` | Contains whitespace and an underscore. Does not contain capitalized letters, special characters or periods. **Not recommended.** | **Yes** | `phone__number`
 `phone😡number` | Contains an emoji. Does not contain capitalized letters, special characters, whitespace, periods or underscores. **Not recommended**. | **No**, but will cause other issues. | `phone😡number`
@@ -28,7 +32,7 @@ Name | Description | Will be sanitized | Sanitized version
 `phone%20number` (passed in via [metaFields](#metafields-type-object) settings object) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
 
 ## **Overview**
-Deleting Meta Variables takes a few different steps. Here is a high-level overview of what you will need to do.
+Deleting Meta Variables takes a few different steps ([see example code here](https://jsfiddle.net/asyi4/o62dt0sw/)). Here is a high-level overview of what you will need to do.
 
 1. Set Meta Variable "expiry settings" on all chatter instances by making a PATCH request to `/chatters/<chatter-token>/set_expiry`.
 
@@ -52,7 +56,7 @@ Deleting Meta Variables takes a few different steps. Here is a high-level overvi
 
 ## 1. Deleting Meta Variables
 You must have a [chatter token](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) to use this endpoint:
-### PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/remove_from_storage`
+### PATCH `https://<bothandle>.ada.support/api/chatters/<chatter-token>/remove_from_storage`
 
 
 This endpoint allows you to delete a chatter's Meta Variables. It must be used in reaction to an event, such as a chatter session being **properly ended** (eg. on user logout).
@@ -78,7 +82,7 @@ Ada's nightly deletion task works with the [set_expiry endpoint (see docs below)
 ## 2. Setting and removing variable expiry settings
 
 You must have a [chatter token](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) to use this endpoint:
-### PATCH `https://<bothandle>.ada.support/chatters/<chatter-token>/set_expiry`
+### PATCH `https://<bothandle>.ada.support/api/chatters/<chatter-token>/set_expiry`
 
 When chatter sessions have not been properly ended (eg. on browser crash, on tab-close, on window-close), their Meta Variables cannot be immediately deleted by the [deletion endpoint](#1-Deleting-Meta-Variables). In such cases, the deletion task will fall to a nightly background task by Ada every 24 hours.
 
