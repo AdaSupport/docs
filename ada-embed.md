@@ -41,7 +41,7 @@ Once you have your website all ready-to-go, find the page where you'd like to em
 
 That's it! You should now see a small question mark button on the bottom right corner of your page. Clicking the button will toggle the Web Chat in and out of view.
 
-[**You can see a working example here.**](https://jsfiddle.net/8t0wnpvL/)
+[**You can see a working example here.**](https://jsfiddle.net/vr87utse/)
 
 ## Configuring Your Bot
 Ada Embed supports numerous [settings](#settings) and [actions](#actions) to help you customize the look and behaviour of your bot. Settings are set in the `adaSettings` object when you [embed your script](#2-embed-script). They determine intrinsic properties like bot style and behaviour. Conversely, actions can be called at any point in time to toggle Chat, update user meta data, and more.
