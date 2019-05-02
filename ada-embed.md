@@ -41,7 +41,7 @@ Once you have your website all ready-to-go, find the page where you'd like to em
 
 That's it! You should now see a small question mark button on the bottom right corner of your page. Clicking the button will toggle the Web Chat in and out of view.
 
-[**You can see a working example here.**](https://jsfiddle.net/asyi4/9k56j0hr/9/)
+[**You can see a working example here.**](https://jsfiddle.net/vr87utse/)
 
 ## Configuring Your Bot
 Ada Embed supports numerous [settings](#settings) and [actions](#actions) to help you customize the look and behaviour of your bot. Settings are set in the `adaSettings` object when you [embed your script](#2-embed-script). They determine intrinsic properties like bot style and behaviour. Conversely, actions can be called at any point in time to toggle Chat, update user meta data, and more.
@@ -344,7 +344,7 @@ button.ada-chat-button {
   left: 24px; // This will position the Chat button on the left side of the screen
 }
 ```
-[**You can experiment with a working example here.**](https://jsfiddle.net/asyi4/9k56j0hr/9/)
+[**You can experiment with a working example here.**](https://jsfiddle.net/8t0wnpvL/)
 
 #### Q: How do I have the bot only appear during certain hours?
 **A:** If the bot should only appear during certain times, you will need to wrap your Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
