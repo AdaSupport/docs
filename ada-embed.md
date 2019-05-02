@@ -144,6 +144,20 @@ Selector | Description
 </script>
 ```
 
+#### `dragAndDrop` `@type {Boolean}`
+When set to `true`, this will allow users to move the embed script button around the screen. Intros messages 
+will also move along with the button.
+
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    dragAndDrop: true,
+    // ...The rest of your settings here
+  }
+</script>
+```
+
 #### `greeting` `@type {String}`
 This can be used to customize the greeting messages that new users see. This is useful for setting page-specific greetings across your app. The `greeting` should correspond to the ID of the Answer you would like to use. The ID can be found in the URL of the corresponding Answer in the dashboard.
 
