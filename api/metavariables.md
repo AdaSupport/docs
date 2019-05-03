@@ -77,6 +77,21 @@ Parameter | Description | Optionality
 ```
 {"message" : "Cleared meta variables from chatter storage"}
 ```
+### Example Response: 400
+```
+{"message": "Sorry, variables field is missing."}
+```
+### Example Response: 404
+```
+{"message": "Sorry, this chatter doesn't exist."}
+```
+```
+{"message": "Sorry, that resource could not be found"}
+```
+### Example Response: 500
+```
+{"message": "Sorry, we encountered an unexpected error. We've been notified and will work to resolve it as quickly as possible"}
+```
 Ada's nightly deletion task works with the [set_expiry endpoint (see docs below)](#2-Setting-and-removing-variable-expiry-settings) to handle Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
 
 ## 2. Setting and removing variable expiry settings
@@ -135,6 +150,20 @@ This response applies to both setting and removing `variable_expiry_settings`.
 ```
 {"message" : "Chatter meta variable expiry updated"}
 ```
-
+### Example Response: 400
+```
+{"message": "Sorry, variable_expiry_settings field is missing."}
+```
+### Example Response: 404
+```
+{"message": "Sorry, this chatter doesn't exist."}
+```
+```
+{"message": "Sorry, that resource could not be found"}
+```
+### Example Response: 500
+```
+{"message": "Sorry, we encountered an unexpected error. We've been notified and will work to resolve it as quickly as possible"}
+```
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
