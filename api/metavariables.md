@@ -163,7 +163,7 @@ This response applies to both setting and removing `variable_expiry_settings`.
 ```
 ### Example Response: 500
 ```
-{"message": "Sorry, we encountered an unexpected error. We've been notified and will work to resolve it as quickly as possible"}
+{"message": "Sorry, we encountered an unexpected error. We've been notified and will work to resolve it as quickly as possible."}
 ```
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
