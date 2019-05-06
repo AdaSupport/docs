@@ -90,7 +90,7 @@ Parameter | Description | Optionality
 ```
 ### Example Response: 500
 ```
-{"message": "Sorry, we encountered an unexpected error. We've been notified and will work to resolve it as quickly as possible"}
+{"message": "Sorry, we encountered an unexpected error. We've been notified and will work to resolve it as quickly as possible."}
 ```
 Ada's nightly deletion task works with the [set_expiry endpoint (see docs below)](#2-Setting-and-removing-variable-expiry-settings) to handle Meta Variable deletion for chatter sessions that have been **improperly ended** (eg. on tab-close, on window-close, on browser crash).
 
