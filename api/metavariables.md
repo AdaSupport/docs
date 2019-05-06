@@ -75,7 +75,7 @@ Parameter | Description | Optionality
 ```
 ### Example Response: 200
 ```
-{"message" : "Cleared meta variables from chatter storage"}
+{"message" : "Cleared meta variables from chatter storage."}
 ```
 ### Example Response: 400
 ```
@@ -86,7 +86,7 @@ Parameter | Description | Optionality
 {"message": "Sorry, this chatter doesn't exist."}
 ```
 ```
-{"message": "Sorry, that resource could not be found"}
+{"message": "Sorry, that resource could not be found."}
 ```
 ### Example Response: 500
 ```
@@ -148,7 +148,7 @@ and then pass *expiryTime* as the value of **expiry** in the request body like s
 ### Example Response: 200
 This response applies to both setting and removing `variable_expiry_settings`.
 ```
-{"message" : "Chatter meta variable expiry updated"}
+{"message" : "Chatter meta variable expiry updated."}
 ```
 ### Example Response: 400
 ```
@@ -159,7 +159,7 @@ This response applies to both setting and removing `variable_expiry_settings`.
 {"message": "Sorry, this chatter doesn't exist."}
 ```
 ```
-{"message": "Sorry, that resource could not be found"}
+{"message": "Sorry, that resource could not be found."}
 ```
 ### Example Response: 500
 ```
