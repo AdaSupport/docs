@@ -6,7 +6,7 @@ Hello and welcome to the Ada documentation repository! This is our place to stor
 
 This is where to look if you're integrating with any of Ada's backend services.
 
-## [Ada Embed ✨Beta✨](/ada-embed.md)
+## [Ada Embed](/ada-embed.md)
 
 The latest Ada Embed script.
 
