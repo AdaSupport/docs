@@ -354,11 +354,13 @@ Please note that we cannot guarantee custom changes will work with future versio
 
 ```
 // This line in your CSS
-button.ada-chat-button {
-  left: 24px; // This will position the Chat button on the left side of the screen
+button.ada-embed-button {
+  // This will make the chat button appear larger
+  width: 60px !important;
+  height: 60px !important;
 }
 ```
-[**You can experiment with a working example here.**](https://jsfiddle.net/8t0wnpvL/)
+[**You can experiment with a working example here.**](https://jsfiddle.net/80enprh6/)
 
 #### Q: How do I have the bot only appear during certain hours?
 **A:** If the bot should only appear during certain times, you will need to wrap your Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
