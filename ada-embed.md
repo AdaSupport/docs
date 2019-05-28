@@ -277,12 +277,20 @@ Deletes the `chatter` used to fetch conversation logs for an end-user from stora
 adaEmbed.deleteHistory();
 ```
 
-#### `reset()`
-Creates a new `chatter` and refreshes the Chat window.
+#### `reset(resetSettings)` `@param {Object}`
+Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`. 
 
 **Example:**
 ```javascript
 adaEmbed.reset();
+```
+**Example:**
+```javascript
+adaEmbed.reset({
+  metaFields: {
+    tier: "pro"
+  }
+});
 ```
 
 #### `setMetaFields(metaFields)` `@param {Object}`
