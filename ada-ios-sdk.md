@@ -31,7 +31,7 @@ The Ada iOS SDK can be installed manually or using CocoaPods. The SDK supports i
 ```
 pod repo add EmbedFrameworkSpec https://github.com/AdaSupport/EmbedFrameworkSpec.git
 ```
-2. Add the AdaEmbedFramework to your Podfile. You will also need to include the source URL of the spec repo at the top of your Podfile.
+2. Add the AdaEmbedFramework to your Podfile. You will also need to include the source URL of the spec repo.
 
 **Example:**
 ```
