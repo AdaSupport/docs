@@ -4,15 +4,12 @@
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
-2. [Quick Start](#quick-start)
-    - [Turn on your bot](#1-turn-on-your-bot)
-    - [Embed script](#2-embed-script)
-3. [Configuring Your Bot](#configuring-your-bot)
-    - [Settings](#settings)
-    - [Actions](#actions)
-4. [FAQ](#faq)
-5. [Versioning](#versioning)
-6. [Questions](#questions)
+2. [Installation](#installation)
+    - [Manual Integration](#option-1-manual-integration)
+    - [CocoaPods](#option-2-cocoapods)
+3. [Configuration](#configuration)
+4. [API](#api)
+5. [Questions](#questions)
 
 ## Prerequisites
 This document is intended for bot specialists and developers with working knowledge of iOS development. It also assumes you have a native iOS app into which you plan to integrate the Ada iOS SDK.
@@ -107,3 +104,6 @@ adaFramework.setMetaFields([
     "tier": "pro"
 ])
 ```
+
+## Questions
+Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
