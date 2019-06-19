@@ -25,7 +25,7 @@ The Ada iOS SDK can be installed manually or using CocoaPods. The SDK supports i
 5. Run script?
 
 ### Option 2: CocoaPods
-> The Ada EmbedFramework CocoaPod is private. In order to use it you must first be added as a collaborator to the EmbedFrameworkSpec repository. If you would like access please erase out to an Ada Bot Specialist.
+> The Ada EmbedFramework CocoaPod is private. In order to use it you must first be added as a collaborator to the EmbedFrameworkSpec repository. If you would like access please reach out to an Ada Bot Specialist.
 
 1. Add the private EmbedFrameworkSpec repo to your local Cocoapods installation with the command:
 ```
