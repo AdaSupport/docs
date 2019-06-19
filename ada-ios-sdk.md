@@ -65,7 +65,7 @@ var adaFramework = AdaWebHost(handle: “ada-example”, cluster: "", language: 
 ```
 Be sure to sure modify `handle` and any other values as needed for your bot.
 
-Finally, launch Ada using any of the 3 opening methods: launchModalWebSupport, launchNavWebSupport, or launchInjectingWebSupport.
+Finally, launch Ada using any of the 3 opening methods: [launchModalWebSupport](#launchmodalwebsupportfrom-viewcontroller-uiviewcontroller), [launchNavWebSupport](#launchinjectingwebsupportinto-view-uiview), or [launchInjectingWebSupport](#launchinjectingwebsupportinto-view-uiview).
 
 ## API
 ### Methods
