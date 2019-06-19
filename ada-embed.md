@@ -1,4 +1,4 @@
-# Ada Embed ✨Beta✨
+# Ada Embed
 
 > Ada Embed is a small JavaScript application that embeds your **Ada** Chat bot into your web page.
 
