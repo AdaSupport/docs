@@ -57,7 +57,7 @@ pod install
 Once you have installed the Ada iOS SDK, you are ready to use it in your app! To start, import AdaEmbed into your controller:
 
 ```swift
-`import EmbedFramework`
+import EmbedFramework
 ```
 You can then create an instance of the AdaWebHost like so:
 ```swift
