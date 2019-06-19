@@ -72,7 +72,7 @@ Finally, launch Ada using any of the 3 opening methods: launchModalWebSupport, l
 
 ## API
 ### Methods
-#### `launchModalWebSupport(from: )`
+#### `launchModalWebSupport(from viewController: UIViewController)`
 Launches Ada Chat in a modal view overtop your current view.
 
 **Example:**
@@ -80,7 +80,7 @@ Launches Ada Chat in a modal view overtop your current view.
 adaFramework.launchModalWebSupport(from: self)
 ```
 
-#### `launchNavWebSupport(from: )`
+#### `launchNavWebSupport(from navController: UINavigationController)`
 Pushes a view containing Ada Chat to the top of your navigational stack.
 
 **Example:**
@@ -88,7 +88,7 @@ Pushes a view containing Ada Chat to the top of your navigational stack.
 adaFramework.launchNavWebSupport(from: navigationController)
 ```
 
-#### `launchInjectingWebSupport(into: )`
+#### `launchInjectingWebSupport(into view: UIView)`
 Launches Ada Chat into a specified subview.
 
 **Example:**
@@ -96,7 +96,7 @@ Launches Ada Chat into a specified subview.
 adaFramework.launchInjectingWebSupport(into: injectingView)
 ```
 
-#### `setMetaFields()`
+#### `setMetaFields(_ fields: [String: Any])`
 Used to set meta data for a chatter after instantiation. This is useful if you need to update user data after Ada Chat has already launched.
 
 **Example:**
