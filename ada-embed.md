@@ -28,7 +28,7 @@ The first step towards adding your Ada Chat Bot to your web page is to turn on t
 <img width="600" alt="Ada Dashboard Chat Settings" src="https://user-images.githubusercontent.com/9045634/49764964-f2013d80-fc9e-11e8-8e8e-52ed7774b3bf.png">
 
 ### 2. Embed script
-Once you have your website all ready-to-go, find the page where you'd like to embed the Ada Chat bot. This will be a `.html` file (or equivalent). Here you will need to paste the following into the `<head>...</head>` block. Be sure to replace the example data-handle with your own.
+Once you have your website all ready-to-go, find the page where you'd like to embed the Ada Chat bot. This will be a `.html` file (or equivalent). Here you will need to paste the following above the closing `</body>` tag. Be sure to replace the example data-handle with your own.
 
 ```html
 <script 
@@ -59,7 +59,23 @@ Specifies a callback function to be called when the Embed script has finished se
     adaReadyCallback: () => {
       console.log("Ada Embed is done setting up. Chat support is now available.");
     },
-    ... // The rest of your settings here
+    // ...The rest of your settings here
+  }
+</script>
+```
+
+#### `analyticsCallback` `@type {Function}`
+To gather analytic event data, clients must pass an `analyticsCallback` function to the Embed `adaSettings` object when instantiating their bot.
+
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    analyticsCallback: (event) => {
+      // Here is where you can forward this event to Adobe (or elsewhere)
+      console.log(event);
+    },
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -74,7 +90,7 @@ Specifies a callback function to be called when the Chatter has been set. The Ch
     chatterTokenCallback: (chatter) => {
       console.log("Do something with chatter token: ", chatter);
     },
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -82,6 +98,15 @@ Specifies a callback function to be called when the Chatter has been set. The Ch
 #### `cluster` `@type {String}`
 Specifies the Kubernetes cluster to be used. Unless directed by an Ada team member, you will not need to change this value.
 
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    cluster: "ca",
+    // ...The rest of your settings here
+  }
+</script>
+```
 
 #### `styles` `@type {String}`
 The `styles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below.
@@ -114,20 +139,34 @@ Selector | Description
 <script type="text/javascript">
   window.adaSettings = {
     styles: "*{font-size: 14px !important;}#message-input{background-color: white; border: 1px solid #c1c1c1;}",
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
 
-#### `greetingHandle` `@type {String}`
-This can be used to customize the greeting messages that new users see. This is useful for setting page-specific greetings across your app. The `greetingHandle` should correspond to the title of the Answer you would like to use.
+#### `dragAndDrop` `@type {Boolean}`
+When set to `true`, this will allow users to move the embed script button around the screen. Intros messages 
+will also move along with the button.
 
 **Example:**
 ```html
 <script type="text/javascript">
   window.adaSettings = {
-    greetingHandle: "My Answer",
-    ... // The rest of your settings here
+    dragAndDrop: true,
+    // ...The rest of your settings here
+  }
+</script>
+```
+
+#### `greeting` `@type {String}`
+This can be used to customize the greeting messages that new users see. This is useful for setting page-specific greetings across your app. The `greeting` should correspond to the ID of the Answer you would like to use. The ID can be found in the URL of the corresponding Answer in the dashboard.
+
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    greeting: "5c59aaabd8269e0339979014",
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -140,7 +179,7 @@ When set to `true`, this will prevent the default mask from appearing over top o
 <script type="text/javascript">
   window.adaSettings = {
     hideMask: true,
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
@@ -153,13 +192,13 @@ Takes in a language code to programatically set the bot language. Languages must
 <script type="text/javascript">
   window.adaSettings = {
     language: "fr",
-    ... // The rest of your settings here
+    // ...The rest of your settings here
   }
 </script>
 ```
 
 #### `metaFields` `@type {Object}`
-Used to pass meta information about a Chatter. This can be useful for tracking information about your end users, as well as for personalizing their experience. For example, you may wish to track the `phone_number` and `name` for conversation attribution. Once set, this information can be accessed in the email attachment from Handoff Form submissions, or via the Chatter modal in the **Conversations** page of your Ada dashboard. Should you need to programtically change these values after bot setup, you can make use of the [setMetaFields](#setmetafieldsmetafields-param-object) action below.
+Used to pass meta information about a Chatter. This can be useful for tracking information about your end users, as well as for personalizing their experience. For example, you may wish to track the `phone_number` and `name` for conversation attribution. Once set, this information can be accessed in the email attachment from Handoff Form submissions, or via the Chatter modal in the **Conversations** page of your Ada dashboard. Should you need to programatically change these values after bot setup, you can make use of the [setMetaFields](#setmetafieldsmetafields-param-object) action below.
 
 **Example:**
 ```html
@@ -168,14 +207,38 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
     metaFields: {
       phone_number: "(123) 456-7890",
       name: "Ada Lovelace"
-    }
-    ... // The rest of your settings here
+    },
+    // ...The rest of your settings here
   }
 </script>
 ```
 
+
+**Note**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
+
+Name | Description | Will be sanitized | Sanitized version
+--- | --- | --- | ---
+`phone` | Does not contain capitalized letters, special characters, whitespace, underscores or periods. **Recommended format**. | **No** | `phone`
+`phone_number` | Contains an underscore. Does not contain capitalized letters, special characters, whitespace or periods. **Recommended format**. | **No** | `phone_number`
+`phone number` | Contains whitespace. Does not contain capitalized letters, special characters, periods or underscores. **Not recommended.** | **Yes** | `phone_number`
+`PHONE NUMBER` | Contains whitespace and capitalized letters. Does not contain special characters or periods. **Not recommended.** | **Yes** | `phone_number`
+`Phone` | Contains capitalized letters. Does not contain whitespace, special characters or periods. **Not recommended.** | **Yes** | `phone`
+`phone.number` | Contains a period. Does not contain capitalized letters, special characters, whitespace or periods. **Not recommended.** | **Yes** | `phone_number`
+`phone _number` | Contains whitespace and an underscore. Does not contain capitalized letters, special characters or periods. **Not recommended.** | **Yes** | `phone__number`
+`phone😡number` | Contains an emoji. Does not contain capitalized letters, special characters, whitespace, periods or underscores. **Not recommended**. | **No**, but will cause other issues. | `phone😡number`
+`phone!number` | Contains a special character. Does not contain capitalized letters, whitespace, periods or underscores. **Not recommended.** | **No** | `phone!number`
+`phone%20number` (passed in via [queryParams](#FAQ)) | Contains URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **Yes**| `phone_number`
+`phone%20number` (passed in via [setMetaFields](#setmetafieldsmetafields-param-object) action) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
+`phone%20number` (passed in via [metaFields](#metafields-type-object) settings object) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
+
 #### `mobileOverlay` `@type {Boolean}`
-By default, the Web Chat will open in a new window on mobile devices. If you'd prefer to have it open as an overlay overtop the current window, set this option to `true`.
+By default, the Web Chat will open as an overlay over your site on mobile devices. If you'd prefer to have it open in a new window, set this option to `false`. Note that setting to `false` will prevent the following features from working:
+- [adaReadyCallback](#adareadycallback-type-function)
+- [chatterTokenCallback](#chattertokencallback-type-function)
+- [styles](#styles-type-string)
+- [deleteHistory](#deleteHistory)
+- [reset](#reset)
+- [setMetaFields](#setmetafieldsmetafields-param-object)
 
 #### `parentElement` `@type {String|Object}`
 Specifies where to mount the `<iframe>` if the default side drawer is not desired. Accepts the `HTMLNode` or `id` of the desired parent element.
@@ -187,7 +250,7 @@ Specifies where to mount the `<iframe>` if the default side drawer is not desire
   <script type="text/javascript">
     window.adaSettings = {
       parentElement: document.getElementById("custom-iframe"),
-      ... // The rest of your settings here
+      // ...The rest of your settings here
     }
   </script>
 </head>
@@ -199,7 +262,7 @@ Specifies where to mount the `<iframe>` if the default side drawer is not desire
 ```
 
 #### `private` `@type {Boolean}`
-If set to `true`, this will put Web Chat into "Private" mode. This will cause Web Chat to forget conversation history on refresh. This is effectively the same as setting your Web Chat platform persistence to "Forget After Reload" in the **Settings > Platforms** page of your Ada dashboard. More information on persistence can be found [here](https://ada.support/articles/chatter-persistence/).
+If set to `true`, this will put Web Chat into "Private" mode. This will cause Web Chat to forget conversation history on refresh. This is effectively the same as setting your Web Chat platform persistence to "Forget After Reload" in the **Settings > Platforms** page of your Ada dashboard. More information on persistence can be found [here](https://adasupporthelp.zendesk.com/hc/en-us/articles/360018115813-Chatter-Persistence-Remembering-Conversations-).
 
 ---
 
@@ -214,12 +277,20 @@ Deletes the `chatter` used to fetch conversation logs for an end-user from stora
 adaEmbed.deleteHistory();
 ```
 
-#### `reset()`
-Creates a new `chatter` and refreshes the Chat window.
+#### `reset(resetSettings)` `@param {Object}`
+Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`. 
 
 **Example:**
 ```javascript
 adaEmbed.reset();
+```
+**Example:**
+```javascript
+adaEmbed.reset({
+  metaFields: {
+    tier: "pro"
+  }
+});
 ```
 
 #### `setMetaFields(metaFields)` `@param {Object}`
@@ -232,6 +303,7 @@ adaEmbed.setMetaFields({
   name: "Ada Lovelace"
 });
 ```
+**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
 
 #### `start(adaSettings)` `@param {Object}`
 Used to add the Ada Embed interface to your page. Takes in an optional object for setting customization.
@@ -262,7 +334,7 @@ adaEmbed.toggle();
 
 ## FAQ
 #### Q: How do I set up Ada Chat in mobile?
-**A:** Ada Embed is currently only available as a Web App. For developers looking to integrate Ada into a mobile application, we recommend you include the URL of your Ada Chat bot directly [inside a Webview](https://github.com/AdaSupport/docs/blob/nh-chaperone-rewrite/embed-mobile.md). By not using Ada Embed you will lose access to the actions and settings interface detailed above. Fortunately, we have made many of these features available to you via query parameters in your Chat URL.
+**A:** Ada Embed is currently only available as a Web App. For developers looking to integrate Ada into a mobile application, we recommend you include the URL of your Ada Chat bot directly inside a Webview. By not using Ada Embed you will lose access to the actions and settings interface detailed above. Fortunately, we have made many of these features available to you via query parameters in your Chat URL.
 
 See the table below for a list of available parameters.
 
@@ -270,13 +342,16 @@ Key | Value | Description
 --- | --- | ---
 `greeting` | The greeting Answer ID |  Specify a custom greeting
 `language` | A supported ISO 639-1 language |  Set the Web Chat language
-`*` | Any other key is treated as a meta field | Used to pass meta informaton about an end user
+`*` | Any other key is treated as a [meta field](#metafields-type-object) | Used to pass meta informaton about an end user
 `private` | `true` or 1 | Used to forget the Chat session on refresh.
 
 **Example:**
 ```
 https://ada-example.ada.support/chat/?language=fr&name=Ada
 ```
+**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
+
+#### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
 #### Q: How do I customize the look of the Ada Chat button?
 **A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
@@ -287,11 +362,13 @@ Please note that we cannot guarantee custom changes will work with future versio
 
 ```
 // This line in your CSS
-button.ada-chat-button {
-  left: 24px; // This will position the Chat button on the left side of the screen
+button.ada-embed-button {
+  // This will make the chat button appear larger
+  width: 60px !important;
+  height: 60px !important;
 }
 ```
-[**You can experiment with a working example here.**](https://jsfiddle.net/8t0wnpvL/)
+[**You can experiment with a working example here.**](https://jsfiddle.net/80enprh6/)
 
 #### Q: How do I have the bot only appear during certain hours?
 **A:** If the bot should only appear during certain times, you will need to wrap your Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
@@ -305,7 +382,7 @@ button.ada-chat-button {
 ## Versioning
 The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`. 
 
-In rare situations you may wish to lock Embed to a specific version. You can find a list of available Embed releases [here](https://github.com/AdaSupport/embed/releases). Of course, using a static verion means that new changes and improvements will not be available to you. Additionally, though we will make every effort to remain backward compatible, we at some point may require you to update your version. In such cases you will be notified by email *insert amount of time here* before we deprecate your version.
+In rare situations you may wish to lock Embed to a specific version. You can find a list of available Embed releases [here](https://github.com/AdaSupport/embed/releases). Of course, using a static version means that new changes and improvements will not be available to you. Additionally, though we will make every effort to remain backward compatible, we at some point may require you to update your version. In such cases you will be notified by email *insert amount of time here* before we deprecate your version.
 
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).

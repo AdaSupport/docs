@@ -6,11 +6,7 @@ Hello and welcome to the Ada documentation repository! This is our place to stor
 
 This is where to look if you're integrating with any of Ada's backend services.
 
-## [Embeddable Chaperone](/chaperone.md)
-
-Check this out if you're interested in embedding Ada's chat interface into your website.
-
-## [Ada Embed ✨Beta✨](/ada-embed.md)
+## [Ada Embed](/ada-embed.md)
 
 The latest Ada Embed script.
 
@@ -18,10 +14,10 @@ The latest Ada Embed script.
 
 Read these instructions if you want to embed Ada's chat interface into your native mobile application (instructions for both iOS and Android here).
 
-## [Chat UI](/chat/chat.md)
-
-Read this if you're interested in learning more about Ada's web chat UI and what it can do.
-
 ## [Answering Machine](/answering-machine/answering-machine.md)
 
 See this document to understand Ada's machine learning API service
+
+## [Embeddable Chaperone (Legacy)](/chaperone.md)
+
+Check this out if you're interested in embedding Ada's chat interface into your website.
