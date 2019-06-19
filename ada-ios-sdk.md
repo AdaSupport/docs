@@ -19,10 +19,9 @@ The Ada iOS SDK can be installed manually or using CocoaPods. The SDK supports i
 
 ### Option 1: Manual Integration
 1. Download the Ada iOS SDK framework here.
-2. Using the Finder, drag the `AdaEmbed.framework` folder into your project. Ensure that the Copy groups options is selected.
+2. Right click on the project file in XCode, then click "Add Files to "MyProjectName". Ensure that the Copy groups options is selected.
 3. Ensure your Deployment Target is set to 10.0, which is the minimum iOS version that the Ada iOS SDK is compatible with.
-4. In the project settings under General, link the `AdaEmbed.framework` under the Embedded Binaries section.
-5. Run script?
+4. In the project settings under General, link the `AdaEmbed.framework` under the Embedded Binaries section. You can do this by dragging the framework from the left side list in the Embedded Binaries list.
 
 ### Option 2: CocoaPods
 > The Ada EmbedFramework CocoaPod is private. In order to use it you must first be added as a collaborator to the EmbedFrameworkSpec repository. If you would like access please reach out to an Ada Bot Specialist.
