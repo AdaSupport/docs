@@ -20,7 +20,7 @@ This document is intended for bot specialists and developers with working knowle
 The Ada iOS SDK can be installed manually or using CocoaPods. The SDK supports iOS 10.x and up.
 
 ### Option 1: Manual Integration
-1. Download the Ada iOS SDK framework here.
+1. Download the Ada iOS SDK framework [here](https://github.com/AdaSupport/EmbedFramework/blob/master/AdaEmbedFramework.framework.zip?raw=true).
 2. Right click on the project file in XCode, then click "Add Files to *MyProjectName*". Ensure that the *Copy groups* option is selected.
 3. Ensure your Deployment Target is set to 10.0, which is the minimum iOS version that the Ada iOS SDK is compatible with.
 4. In the project settings under General, link the `AdaEmbedFramework.framework` under the Embedded Binaries section. You can do this by dragging the framework from the left side list in the Embedded Binaries list.
