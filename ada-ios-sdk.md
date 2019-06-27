@@ -44,7 +44,7 @@ target 'CocoaTest' do
   source "https://github.com/AdaSupport/EmbedFrameworkSpec.git"
 
   # Pods for CocoaTest
-  pod "AdaEmbedFramework", "~>0.1.5"
+  pod "AdaEmbedFramework", "~>1.0.0"
 
 end
 ```
