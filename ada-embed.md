@@ -277,6 +277,14 @@ Deletes the `chatter` used to fetch conversation logs for an end-user from stora
 adaEmbed.deleteHistory();
 ```
 
+#### `getInfo()`
+Returns an object containing information about the bot, including `hasActiveChatter`, `hasClosedChat`, and `isChatOpen`.
+
+**Example:**
+```javascript
+adaEmbed.getInfo();
+```
+
 #### `reset(resetSettings)` `@param {Object}`
 Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`. 
 
