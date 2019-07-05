@@ -14,7 +14,8 @@
     - [Actions](#actions)
 4. [FAQ](#faq)
 5. [Versioning](#versioning)
-6. [Questions](#questions)
+6. [Browser Support](#browser-support)
+7. [Questions](#questions)
 
 ## Prerequisites
 This document is intended for bot specialists and developers with working knowledge of HTML. For some of the advanced setup, basic knowledge of JavaScript is required. The document also assumes you have a hosted web page that you have write access to.
@@ -396,6 +397,9 @@ button.ada-embed-button {
 The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`. 
 
 In rare situations you may wish to lock Embed to a specific version. You can find a list of available Embed releases [here](https://github.com/AdaSupport/embed/releases). Of course, using a static version means that new changes and improvements will not be available to you. Additionally, though we will make every effort to remain backward compatible, we at some point may require you to update your version. In such cases you will be notified by email *insert amount of time here* before we deprecate your version.
+
+## Browser Support
+Embed supports all major browsers, including IE10+, Safari, Chrome, and FF.
 
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
