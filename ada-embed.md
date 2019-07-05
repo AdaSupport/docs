@@ -387,6 +387,11 @@ button.ada-embed-button {
 #### Q: Ada Embed is rendered as soon as the page loads. How can I delay rendering?
 **A:** The [Embed script](#2-embed-script) features a useful data attribute called `data-lazy`. When defined on your script, Ada Embed will not be triggered until you manually call [adaEmbed.start()](#startadasettings-param-object).
 
+#### Q: How do I integrate Embed using Google Tag Manager (GTM)?
+**A:** Paste the Embed script and settings as you normally would into the Tag Configuration modal. Next, ensure the "Support document.write" button is toggled on (otherwise data attributes will be stripped out by GTM).
+
+![ada embed GTM](https://user-images.githubusercontent.com/9045634/60745022-5c284b00-9f2d-11e9-939c-6f449334f5c6.jpg "Ada Embed GTM")
+
 ## Versioning
 The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`. 
 
