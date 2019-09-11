@@ -203,13 +203,23 @@ Can be used to programatically close the Web Chat view. This method cannot be us
 
 
 #### `setMetaField(fieldName, value)` `@param {String}` `@param {String}`
-You can use this method to set meta properties for the Chatter. This can be useful for tracking information about your end users, as well as for personalizing their experience. For example, you may wish to track the `email` and `name` for conversation attribution. Once set, this information can be accessed in the email attachment from Handoff Form submissions, or via the Chatter modal in the **Conversations** page of your Ada dashboard. Additionally, the bot can be configured to call the user by name. You can learn more about personalization [here](https://adasupporthelp.zendesk.com/hc/en-us/articles/360018562373-Personalization).
+You can use this method to set meta properties (aka meta variables) for the Chatter. This can be useful for tracking information about your end users, as well as for personalizing their experience. For example, you may wish to track the `email` and `name` for conversation attribution. Once set, this information can be accessed in the email attachment from Handoff Form submissions, or via the Chatter modal in the **Conversations** page of your Ada dashboard. Additionally, the bot can be configured to call the user by name. You can learn more about personalization [here](https://adasupporthelp.zendesk.com/hc/en-us/articles/360018562373-Personalization).
 
 **Example:**
 ```javascript
 adaBot.setMetaField('email', 'joe-schmoe123@gmail.com');
 adaBot.setMetaField('name', 'Joe Schmoe');
 ```
+
+Please note that the following Chatter meta properties are set for you by default, so please refrain from using their names as a `fieldName` for other meta properties:
+Name | Type | Description | Example
+--- | --- | --- | ---
+`browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
+`browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
+`device` | `String` | The end-user's device type | "macos"
+`language` | `String` | The language specified by the end-user's browser in ISO 2 letter language code | "en", "fr", "es", etc.
+`user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+
 
 #### `show()`
 Can be used to programatically open the Web Chat view. This is useful if you would like to open the Web Chat automatically when the page loads, or when clicking a custom button.
