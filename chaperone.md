@@ -166,6 +166,7 @@ Takes in a language code to programatically set the bot language. Languages must
   });
 </script>
 ```
+`Language` is also set for you by default as a meta field (see `setMetaField` for more details).
 
 #### `mobileOverlay` `@type {Boolean}`
 By default, the Web Chat will open in a new window on mobile devices. If you'd prefer to have it open as an overlay overtop the current window, set this option to `true`.
@@ -211,13 +212,14 @@ adaBot.setMetaField('email', 'joe-schmoe123@gmail.com');
 adaBot.setMetaField('name', 'Joe Schmoe');
 ```
 
-Please note that the following Chatter meta properties are set for you by default, so please refrain from using their names as a `fieldName` for other meta properties:
+Please note that the following Chatter meta properties are set for you by default, though you are free to override their values.
+
 Name | Type | Description | Example
 --- | --- | --- | ---
 `browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
 `browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
 `device` | `String` | The end-user's device type | "macos"
-`language` | `String` | The language specified by the end-user's browser in ISO 2 letter language code | "en", "fr", "es", etc.
+`language` | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
 `user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
 
 
@@ -250,9 +252,19 @@ See the table below for a list of available parameters.
 Key | Value | Type | Description
 --- | --- | --- | ---
 `greeting` | The greeting Answer ID | Query String | Specify a custom greeting
-`language` | A supported ISO 639-1 language | Query String | Set the Web Chat language
-`*` | Any other key is treated as a meta field | Query String | Used to pass meta informaton about an end user
+`language`<sup>1</sup> | A supported ISO 639-1 language | Query String | Set the Web Chat language
+`*` | Any other key is treated as a meta field<sup>2</sup> | Query String | Used to pass meta informaton about an end user
 `private` | `true` or 1 | Query String | Used to forget the Chat session on refresh.
+
+<sup>2</sup> Please keep in mind that the following meta fields are set for you by default, though you are free to override their values.
+
+Name | Type | Description | Example
+--- | --- | --- | ---
+`browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
+`browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
+`device` | `String` | The end-user's device type | "macos"
+<sup>1</sup>`language` | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
+`user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
 
 #### Q: How do I customize the look of the Ada Chat button?
 **A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
