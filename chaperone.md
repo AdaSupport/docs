@@ -252,19 +252,9 @@ See the table below for a list of available parameters.
 Key | Value | Type | Description
 --- | --- | --- | ---
 `greeting` | The greeting Answer ID | Query String | Specify a custom greeting
-`language`<sup>1</sup> | A supported ISO 639-1 language | Query String | Set the Web Chat language
-`*` | Any other key is treated as a meta field<sup>2</sup> | Query String | Used to pass meta informaton about an end user
+`language` | A supported ISO 639-1 language | Query String | Set the Web Chat language
+`*` | Any other key is treated as a meta field | Query String | Used to pass meta informaton about an end user
 `private` | `true` or 1 | Query String | Used to forget the Chat session on refresh.
-
-<sup>2</sup> Please keep in mind that the following meta fields are set for you by default, though you are free to override their values.
-
-Name | Type | Description | Example
---- | --- | --- | ---
-`browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
-`browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
-`device` | `String` | The end-user's device type | "macos"
-<sup>1</sup>`language` | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
-`user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
 
 #### Q: How do I customize the look of the Ada Chat button?
 **A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.

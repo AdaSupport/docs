@@ -214,6 +214,16 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 </script>
 ```
 
+Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override their values.
+
+Name | Type | Description | Example
+--- | --- | --- | ---
+`browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
+`browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
+`device` | `String` | The end-user's device type | "macos"
+`language` | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
+`user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+
 
 **Note**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
 
@@ -312,7 +322,9 @@ adaEmbed.setMetaFields({
   name: "Ada Lovelace"
 });
 ```
-**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
+**Note:** Please keep in mind the following: 1) Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods; 2) Some default meta variables are already set for you.
+
+Please consult the table of variable name formats and the table of default meta variables presented in the [metaFields](#metafields-type-object) settings object.
 
 #### `start(adaSettings)` `@param {Object}`
 Used to add the Ada Embed interface to your page. Takes in an optional object for setting customization.
@@ -358,7 +370,9 @@ Key | Value | Description
 ```
 https://ada-example.ada.support/chat/?language=fr&name=Ada
 ```
-**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
+**Note:** Please keep in mind the following: 1) Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods; 2) Some default meta variables are already set for you.
+
+Please consult the table of variable name formats and the table of default meta variables presented in the [metaFields](#metafields-type-object) settings object.
 
 #### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
