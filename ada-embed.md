@@ -214,7 +214,10 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 </script>
 ```
 
-Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override their values.
+Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override their values using either the `metaFields` object.
+
+The exception to this rule is the `language` variable. You cannot override its value using the `metaFields` object, as it is itself a setting, and thereore a reserved key whose value can directly be overridden under the `adaSettings` object. (See `language @type {String}` above.)
+
 
 Name | Type | Description | Example
 --- | --- | --- | ---
