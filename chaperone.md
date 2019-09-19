@@ -212,7 +212,7 @@ adaBot.setMetaField('email', 'joe-schmoe123@gmail.com');
 adaBot.setMetaField('name', 'Joe Schmoe');
 ```
 
-**Note 1**: Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override their values using either the `metaFields` object.
+**Note 1**: Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override most of their values using the `metaFields` object.
 
 Name | Type | Description | Example
 --- | --- | --- | ---
@@ -222,11 +222,7 @@ Name | Type | Description | Example
 `language`<sup>1</sup> | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
 `user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
 
-
-
-<sup>1</sup>The exception to this rule is you cannot use the `metaFields` object to override variables whose names coincide with reserved keys that are used under `adaSettings`. This includes the `language` variable. To change the value of a reserved key like `language`, you'll need to override it directly under the `adaSettings` object.
-
-Reserved keys include:
+<sup>1</sup>The following is a list of reserved keywords that cannot be set using `metaFields`:
 - language
 - private
 - reset
@@ -236,7 +232,6 @@ Reserved keys include:
 - introShown
 - created
 - zdSession
-
 
 **Note 2**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
 
