@@ -214,18 +214,28 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 </script>
 ```
 
-Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override their values.
+**Note 1**: Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override most of their values using the `metaFields` object.
 
 Name | Type | Description | Example
 --- | --- | --- | ---
 `browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
 `browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
 `device` | `String` | The end-user's device type | "macos"
-`language` | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
+`language`<sup>1</sup> | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
 `user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
 
+<sup>1</sup>The following is a list of reserved keywords that cannot be set using `metaFields`:
+- language
+- private
+- reset
+- greeting
+- initialURL
+- chatterToken
+- introShown
+- created
+- zdSession
 
-**Note**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
+**Note 2**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
 
 Name | Description | Will be sanitized | Sanitized version
 --- | --- | --- | ---

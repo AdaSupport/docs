@@ -212,15 +212,43 @@ adaBot.setMetaField('email', 'joe-schmoe123@gmail.com');
 adaBot.setMetaField('name', 'Joe Schmoe');
 ```
 
-Please note that the following Chatter meta properties are set for you by default, though you are free to override their values.
+**Note 1**: Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override most of their values using the `metaFields` object.
 
 Name | Type | Description | Example
 --- | --- | --- | ---
 `browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
 `browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
 `device` | `String` | The end-user's device type | "macos"
-`language` | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
+`language`<sup>1</sup> | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
 `user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+
+<sup>1</sup>The following is a list of reserved keywords that cannot be set using `metaFields`:
+- language
+- private
+- reset
+- greeting
+- initialURL
+- chatterToken
+- introShown
+- created
+- zdSession
+
+**Note 2**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
+
+Name | Description | Will be sanitized | Sanitized version
+--- | --- | --- | ---
+`phone` | Does not contain capitalized letters, special characters, whitespace, underscores or periods. **Recommended format**. | **No** | `phone`
+`phone_number` | Contains an underscore. Does not contain capitalized letters, special characters, whitespace or periods. **Recommended format**. | **No** | `phone_number`
+`phone number` | Contains whitespace. Does not contain capitalized letters, special characters, periods or underscores. **Not recommended.** | **Yes** | `phone_number`
+`PHONE NUMBER` | Contains whitespace and capitalized letters. Does not contain special characters or periods. **Not recommended.** | **Yes** | `phone_number`
+`Phone` | Contains capitalized letters. Does not contain whitespace, special characters or periods. **Not recommended.** | **Yes** | `phone`
+`phone.number` | Contains a period. Does not contain capitalized letters, special characters, whitespace or periods. **Not recommended.** | **Yes** | `phone_number`
+`phone _number` | Contains whitespace and an underscore. Does not contain capitalized letters, special characters or periods. **Not recommended.** | **Yes** | `phone__number`
+`phone😡number` | Contains an emoji. Does not contain capitalized letters, special characters, whitespace, periods or underscores. **Not recommended**. | **No**, but will cause other issues. | `phone😡number`
+`phone!number` | Contains a special character. Does not contain capitalized letters, whitespace, periods or underscores. **Not recommended.** | **No** | `phone!number`
+`phone%20number` (passed in via [queryParams](#FAQ)) | Contains URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **Yes**| `phone_number`
+`phone%20number` (passed in via [setMetaFields](#setmetafieldsmetafields-param-object) action) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
+`phone%20number` (passed in via [metaFields](#metafields-type-object) settings object) | Contains what looks like URL percent encoding. Does not contain capitalized letters, ASCII whitespace, periods or underscores. **Not recommended.** | **No**| `phone%20number`
 
 
 #### `show()`
