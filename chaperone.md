@@ -1,6 +1,6 @@
 # Ada Chaperone (Legacy)
 
-| WARNING: Chaperone is not longer being maintained. All development has currently moved to [**Embed.**](https://github.com/AdaSupport/docs/blob/master/ada-embed.md) |
+| WARNING: Chaperone is no longer being maintained. All development has currently moved to [**Embed.**](https://github.com/AdaSupport/docs/blob/master/ada-embed.md) |
 | --- |
 
 > Chaperone is a small JavaScript application that embeds your **Ada** Chat bot into your web page.
