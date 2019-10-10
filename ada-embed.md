@@ -32,9 +32,9 @@ The first step towards adding your Ada Chat Bot to your web page is to turn on t
 Once you have your website all ready-to-go, find the page where you'd like to embed the Ada Chat bot. This will be a `.html` file (or equivalent). Here you will need to paste the following above the closing `</body>` tag. Be sure to replace the example data-handle with your own.
 
 ```html
-<script 
-  async 
-  id="__ada" 
+<script
+  async
+  id="__ada"
   data-handle="ada-example"
   src="https://static.ada.support/embed.js"
 ></script>
@@ -51,7 +51,7 @@ Ada Embed supports numerous [settings](#settings) and [actions](#actions) to hel
 Settings are set on the window object as `window.adaSettings = {}`. A full list of available settings is provided below:
 
 #### `adaReadyCallback` `@type {Function}`
-Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`. 
+Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`.
 
 **Example:**
 ```html
@@ -66,7 +66,7 @@ Specifies a callback function to be called when the Embed script has finished se
 ```
 
 #### `analyticsCallback` `@type {Function}`
-To gather analytic event data, clients must pass an `analyticsCallback` function to the Embed `adaSettings` object when instantiating their bot.
+To gather analytic event data, clients must pass an `analyticsCallback` function to the Embed `adaSettings` object when instantiating their bot. Make sure you have `analyticsCallback` feature enabled on your bot - you can check this with your account manager.
 
 **Example:**
 ```html
@@ -79,6 +79,17 @@ To gather analytic event data, clients must pass an `analyticsCallback` function
     // ...The rest of your settings here
   }
 </script>
+```
+
+**Example Event:**
+```
+{
+  chatter_id: "5d9f84b2a35763fc71cb7bf",
+  session_id: "59f84b22c4683df7c38bf69",
+  answer_name: "Greeting",
+  event_name: "answer presented",
+  authenticated: false
+}
 ```
 
 #### `chatterTokenCallback` `@type {Function}`
@@ -146,7 +157,7 @@ Selector | Description
 ```
 
 #### `dragAndDrop` `@type {Boolean}`
-When set to `true`, this will allow users to move the embed script button around the screen. Intros messages 
+When set to `true`, this will allow users to move the embed script button around the screen. Intros messages
 will also move along with the button.
 
 **Example:**
@@ -307,7 +318,7 @@ adaEmbed.getInfo();
 ```
 
 #### `reset(resetSettings)` `@param {Object}`
-Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`. 
+Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`.
 
 **Example:**
 ```javascript
@@ -389,7 +400,7 @@ Please consult the table of variable name formats and the table of default meta 
 #### Q: How do I customize the look of the Ada Chat button?
 **A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
 
-Please note that we cannot guarantee custom changes will work with future versions of Ada Embed. In the near future we will support out-of-box client branding to simplify customization. 
+Please note that we cannot guarantee custom changes will work with future versions of Ada Embed. In the near future we will support out-of-box client branding to simplify customization.
 
 **Example:**
 
@@ -418,7 +429,7 @@ button.ada-embed-button {
 ![ada embed GTM](https://user-images.githubusercontent.com/9045634/60745022-5c284b00-9f2d-11e9-939c-6f449334f5c6.jpg "Ada Embed GTM")
 
 ## Versioning
-The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`. 
+The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`.
 
 In rare situations you may wish to lock Embed to a specific version. You can find a list of available Embed releases [here](https://github.com/AdaSupport/embed/releases). Of course, using a static version means that new changes and improvements will not be available to you. Additionally, though we will make every effort to remain backward compatible, we at some point may require you to update your version. In such cases you will be notified by email *insert amount of time here* before we deprecate your version.
 
