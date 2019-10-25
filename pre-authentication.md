@@ -36,8 +36,7 @@ Used to update `metaFields` after Chat has been opened. In most situations, the 
 **Example:**
 ```javascript
 adaEmbed.setMetaFields({
-  phone_number: "(123) 456-7890",
-  name: "Ada Lovelace"
+  user_auth_token: "NEW_AUTH_TOKEN"
 });
 ```
 **Note:** Please keep in mind the following: 1) Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods; 2) Some default meta variables are already set for you.
