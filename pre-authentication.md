@@ -47,7 +47,7 @@ adaEmbed.setMetaFields({
 
 Once this HTTP Request block is set up (as seen above) and is triggered in an Answer Flow, this authentication token is passed to the API. It is assumed that the token authenticates the calls to the API.
 
-#### It is important to note that token verification should happen in the backend, on every call.
+### It is important to note that token verification should happen in the backend, on every call.
 
 Thus, allowing the API to authenticate the user, and continue to execute the request.
 
