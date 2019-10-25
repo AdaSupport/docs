@@ -91,9 +91,8 @@ The process of passing a Session ID is identical to the `setMetaFields(metaField
 
 Once this HTTP Request block is set up (as seen above) and is triggered in an Answer Flow, this session ID is passed to the API. Thus allowing the API to authenticate the user, and continue to execute the request.
 
-_ _ 
 
-### Helpful Links:
+##### Helpful Links:
 
 - [Ada Embed Documentation](#ada-embed)
 - [Embed Ada in Native Mobile App](#embed-mobile)
