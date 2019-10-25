@@ -26,7 +26,7 @@ In this section, we explain how to create a unique authentication token for each
 
 <img width="150" alt="User Auth Token" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/userauthtoken.png?raw=true">
 
-Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed] (#ada-embed) documentation. 
+Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed](#ada-embed) documentation. 
 
 *See the relevant snippet below.*
 
@@ -87,6 +87,15 @@ The process of passing a Session ID is identical to the `setMetaFields(metaField
 
 ## Using the Session ID to unlock APIs
 
-<img width="700" alt="API Block Example 2" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/httprequest2.png?raw=true">
+<img width="600" alt="API Block Example 2" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/httprequest2.png?raw=true">
 
 Once this HTTP Request block is set up (as seen above) and is triggered in an Answer Flow, this session ID is passed to the API. Thus allowing the API to authenticate the user, and continue to execute the request.
+
+_ _ 
+
+### Helpful Links:
+
+[Ada Embed Documentation](#ada-embed)
+[Embed Ada in Native Mobile App](#embed-mobile)
+[Using the HTTP Request Block](https://adasupporthelp.zendesk.com/hc/en-us/articles/360026752193-HTTP-Request-Block)
+
