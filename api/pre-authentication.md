@@ -24,7 +24,7 @@ Furthermore, the instructions below are written for pre-authentication on the we
 
 In this section, we explain how to create a unique authentication token for each user, and pass this token to us. As you proceed through the steps below you will be working to create a purple metavariable, similar to the one seen here:*
 
-<img width="150" alt="User Auth Token" src="userauthtoken.png">
+<img width="150" alt="User Auth Token" src="api/screen_cap/userauthtoken.png">
 
 Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed] (#ada-embed) documentation. 
 
@@ -44,7 +44,7 @@ adaEmbed.setMetaFields({
 
 ## Using the Authentication Token to unlock APIs
 
-<img width="700" alt="API Block Example" src="api/screen_cap/httprequest1.png">
+<img width="700" alt="API Block Example" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/httprequest1.png?raw=true">
 
 Once this HTTP Request block is set up (as seen above) and is triggered in an Answer Flow, this authentication token is passed to the API. It is assumed that the token authenticates the calls to the API.
 
