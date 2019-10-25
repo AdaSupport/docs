@@ -24,7 +24,7 @@ Furthermore, the instructions below are written for pre-authentication on the we
 
 In this section, we explain how to create a unique authentication token for each user, and pass this token to us. As you proceed through the steps below you will be working to create a purple metavariable, similar to the one seen here:*
 
-<img width="150" alt="User Auth Token" src="api/screen_cap/userauthtoken.png">
+<img width="150" alt="User Auth Token" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/userauthtoken.png?raw=true">
 
 Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed] (#ada-embed) documentation. 
 
@@ -63,7 +63,7 @@ Thus, allowing the API to authenticate the user, and continue to execute the req
 
 As you proceed through the steps below you will be working to create a purple metavariable, similar to the one seen here:
 
-<img width="150" alt="Session ID" src="api/screen_cap/sessionid.png">
+<img width="150" alt="Session ID" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/sessionid.png?raw=true">
 
 For security purposes, we recommend setting an expiration on the session ID that will force the session ID to be regenerated every X minutes. Learn more about best standards with OAuth 2.0 Access Token Lifetimes: [here.](https://www.oauth.com/oauth2-servers/access-tokens/access-token-lifetime/)
 
@@ -87,6 +87,6 @@ The process of passing a Session ID is identical to the `setMetaFields(metaField
 
 ## Using the Session ID to unlock APIs
 
-<img width="700" alt="API Block Example 2" src="api/screen_cap/httprequest2.png">
+<img width="700" alt="API Block Example 2" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/httprequest2.png?raw=true">
 
 Once this HTTP Request block is set up (as seen above) and is triggered in an Answer Flow, this session ID is passed to the API. Thus allowing the API to authenticate the user, and continue to execute the request.
