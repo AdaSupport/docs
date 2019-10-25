@@ -95,7 +95,7 @@ _ _
 
 ### Helpful Links:
 
-[Ada Embed Documentation](#ada-embed)
-[Embed Ada in Native Mobile App](#embed-mobile)
-[Using the HTTP Request Block](https://adasupporthelp.zendesk.com/hc/en-us/articles/360026752193-HTTP-Request-Block)
+- [Ada Embed Documentation](#ada-embed)
+- [Embed Ada in Native Mobile App](#embed-mobile)
+- [Using the HTTP Request Block](https://adasupporthelp.zendesk.com/hc/en-us/articles/360026752193-HTTP-Request-Block)
 
