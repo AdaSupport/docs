@@ -26,7 +26,7 @@ In this section, we explain how to create a unique authentication token for each
 
 <img width="150" alt="User Auth Token" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/userauthtoken.png?raw=true">
 
-Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed](#ada-embed) documentation. 
+Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed](#docs/ada-embed) documentation. 
 
 *See the relevant snippet below.*
 
