@@ -26,12 +26,12 @@ In this section, we explain how to create a unique authentication token for each
 
 <img width="150" alt="User Auth Token" src="https://github.com/AdaSupport/docs/blob/master/api/screen_cap/userauthtoken.png?raw=true">
 
-Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed](#docs/ada-embed) documentation. 
+Detailed instructions on how to Set MetaFields in Ada are included in the [Ada Embed](https://github.com/AdaSupport/docs/blob/master/ada-embed.md) documentation. 
 
 *See the relevant snippet below.*
 
 #### `setMetaFields(metaFields)` `@param {Object}`
-Used to update `metaFields` after Chat has been opened. In most situations, the [metaFields](#metafields-type-object) settings object should be enough for user attribution. However, in cases where Ada Chat remains open while page changes occur (like in Single Page Applications), this methods may be useful.
+Used to update `metaFields` after Chat has been opened. In most situations, the [metaFields](#https://github.com/AdaSupport/docs/blob/master/ada-embed.md#metafields-type-object) settings object should be enough for user attribution. However, in cases where Ada Chat remains open while page changes occur (like in Single Page Applications), this methods may be useful.
 
 **Example:**
 ```javascript
