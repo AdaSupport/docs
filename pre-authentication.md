@@ -93,6 +93,6 @@ Once this HTTP Request block is set up (as seen above) and is triggered in an An
 
 #### Helpful Links:
 
-- [Ada Embed Documentation](#ada-embed)
-- [Embed Ada in Native Mobile App](#embed-mobile)
+- [Ada Embed Documentation](https://github.com/AdaSupport/docs/blob/master/ada-embed.md)
+- [Embed Ada in Native Mobile App](https://github.com/AdaSupport/docs/blob/master/embed-mobile.md)
 - [Using the HTTP Request Block](https://adasupporthelp.zendesk.com/hc/en-us/articles/360026752193-HTTP-Request-Block)
