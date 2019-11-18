@@ -1,6 +1,6 @@
 # Meta Variable Deletion - Developer Docs
 
-> Meta Variables are automatically collected and specific to an individual chatter, as part of the implementation of your **Ada** bot. Any information passed from **your database** to the bot as metadata will be stored by Ada as a Meta Variable of that chatter. However, Ada provides two API endpoints and runs a nightly task, all of which work together to ensure that given Meta Variables are deleted from a given chatter.
+> Meta Variables are automatically collected and specific to an individual chatter, as part of the implementation of your **Ada** bot. Any information passed from **your database** to the bot as metadata will be stored by Ada as a Meta Variable of that chatter. However, Ada provides two API endpoints and runs a nightly task, all of which work together to ensure that given Meta Variables are deleted from a given chatter if you so choose.
 
 ![ada animated gif](https://user-images.githubusercontent.com/4740147/47372740-5b5dca80-d6b8-11e8-87e7-1b76d48370d8.gif "Ada Animated Gif")
 
@@ -10,9 +10,9 @@
 ## **Prerequisites**
 This document is intended *for developers* with working knowledge of REST APIs and JavaScript. It is assumed that you have write-access to your company's code repository which contains **Ada Embed**.
 
-The following instructions will reference the usage of a **chatter token**. See the [Ada EmbedScript docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information on how to get a chatter's token using ```chatterTokenCallback```.
+The following instructions will reference the usage of a **chatter token**. See the [Ada Embed docs](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#configuring-your-bot) for more information on how to get a chatter's token using ```chatterTokenCallback```.
 
-The following instructions also abide by the assumption that any meta variable you have previously passed to Ada via EmbedScript - whether by [query paramaters](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#faq), the [setMetaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#setmetafieldsmetafields-param-object) action or the [metaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#metafields-type-object) settings object - only consist of sanitized names.
+The following instructions also abide by the assumption that any meta variable (aka meta property) you have previously passed to Ada via Embed - whether by [query paramaters](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#faq), the [setMetaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#setmetafieldsmetafields-param-object) action or the [metaFields](https://github.com/AdaSupport/docs/blob/master/ada-embed.md#metafields-type-object) settings object - only consist of sanitized names.
 
 Because unsanitized meta variable names are sanitized by Ada's backend, searching for - and removing - unsanitized variables using the endpoints described below will not be possible (and may result in unexpected issues).
 

@@ -14,7 +14,8 @@
     - [Actions](#actions)
 4. [FAQ](#faq)
 5. [Versioning](#versioning)
-6. [Questions](#questions)
+6. [Browser Support](#browser-support)
+7. [Questions](#questions)
 
 ## Prerequisites
 This document is intended for bot specialists and developers with working knowledge of HTML. For some of the advanced setup, basic knowledge of JavaScript is required. The document also assumes you have a hosted web page that you have write access to.
@@ -31,9 +32,9 @@ The first step towards adding your Ada Chat Bot to your web page is to turn on t
 Once you have your website all ready-to-go, find the page where you'd like to embed the Ada Chat bot. This will be a `.html` file (or equivalent). Here you will need to paste the following above the closing `</body>` tag. Be sure to replace the example data-handle with your own.
 
 ```html
-<script 
-  async 
-  id="__ada" 
+<script
+  async
+  id="__ada"
   data-handle="ada-example"
   src="https://static.ada.support/embed.js"
 ></script>
@@ -50,7 +51,7 @@ Ada Embed supports numerous [settings](#settings) and [actions](#actions) to hel
 Settings are set on the window object as `window.adaSettings = {}`. A full list of available settings is provided below:
 
 #### `adaReadyCallback` `@type {Function}`
-Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`. 
+Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`.
 
 **Example:**
 ```html
@@ -65,7 +66,7 @@ Specifies a callback function to be called when the Embed script has finished se
 ```
 
 #### `analyticsCallback` `@type {Function}`
-To gather analytic event data, clients must pass an `analyticsCallback` function to the Embed `adaSettings` object when instantiating their bot.
+To gather analytic event data, clients must pass an `analyticsCallback` function to the Embed `adaSettings` object when instantiating their bot. Make sure you have `analyticsCallback` feature enabled on your bot - you can check this with your account manager.
 
 **Example:**
 ```html
@@ -78,6 +79,17 @@ To gather analytic event data, clients must pass an `analyticsCallback` function
     // ...The rest of your settings here
   }
 </script>
+```
+
+**Example Event:**
+```
+{
+  chatter_id: "5d9f84b2a35763fc71cb7bf",
+  session_id: "59f84b22c4683df7c38bf69",
+  answer_name: "Greeting",
+  event_name: "answer presented",
+  authenticated: false
+}
 ```
 
 #### `chatterTokenCallback` `@type {Function}`
@@ -145,7 +157,7 @@ Selector | Description
 ```
 
 #### `dragAndDrop` `@type {Boolean}`
-When set to `true`, this will allow users to move the embed script button around the screen. Intros messages 
+When set to `true`, this will allow users to move the embed script button around the screen. Intros messages
 will also move along with the button.
 
 **Example:**
@@ -213,8 +225,28 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 </script>
 ```
 
+**Note 1**: Please keep in mind that the following Chatter meta properties are set for you by default, though you are free to override most of their values using the `metaFields` object.
 
-**Note**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
+Name | Type | Description | Example
+--- | --- | --- | ---
+`browser` | `String` | The end-user's browser type | "chrome", "firefox", "safari", etc.
+`browser_version` | `String` | The end-user's browser version | "76.0.3809.132"
+`device` | `String` | The end-user's device type | "macos"
+`language`<sup>1</sup> | `String` | The language specified by the end-user's browser in ISO 639-1 language format | "en", "fr", "es", etc.
+`user_agent` | `String` | Your end-user's user agent info | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+
+<sup>1</sup>The following is a list of reserved keywords that cannot be set using `metaFields`:
+- language
+- private
+- reset
+- greeting
+- initialURL
+- chatterToken
+- introShown
+- created
+- zdSession
+
+**Note 2**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
 
 Name | Description | Will be sanitized | Sanitized version
 --- | --- | --- | ---
@@ -286,7 +318,7 @@ adaEmbed.getInfo();
 ```
 
 #### `reset(resetSettings)` `@param {Object}`
-Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`. 
+Creates a new `chatter` and refreshes the Chat window. `reset` can also take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`.
 
 **Example:**
 ```javascript
@@ -311,7 +343,9 @@ adaEmbed.setMetaFields({
   name: "Ada Lovelace"
 });
 ```
-**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
+**Note:** Please keep in mind the following: 1) Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods; 2) Some default meta variables are already set for you.
+
+Please consult the table of variable name formats and the table of default meta variables presented in the [metaFields](#metafields-type-object) settings object.
 
 #### `start(adaSettings)` `@param {Object}`
 Used to add the Ada Embed interface to your page. Takes in an optional object for setting customization.
@@ -357,14 +391,16 @@ Key | Value | Description
 ```
 https://ada-example.ada.support/chat/?language=fr&name=Ada
 ```
-**Note:** Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods. Please consult the table of variable name formats presented in the [metaFields](#metafields-type-object) settings object.
+**Note:** Please keep in mind the following: 1) Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods; 2) Some default meta variables are already set for you.
+
+Please consult the table of variable name formats and the table of default meta variables presented in the [metaFields](#metafields-type-object) settings object.
 
 #### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
 #### Q: How do I customize the look of the Ada Chat button?
 **A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
 
-Please note that we cannot guarantee custom changes will work with future versions of Ada Embed. In the near future we will support out-of-box client branding to simplify customization. 
+Please note that we cannot guarantee custom changes will work with future versions of Ada Embed. In the near future we will support out-of-box client branding to simplify customization.
 
 **Example:**
 
@@ -387,10 +423,18 @@ button.ada-embed-button {
 #### Q: Ada Embed is rendered as soon as the page loads. How can I delay rendering?
 **A:** The [Embed script](#2-embed-script) features a useful data attribute called `data-lazy`. When defined on your script, Ada Embed will not be triggered until you manually call [adaEmbed.start()](#startadasettings-param-object).
 
+#### Q: How do I integrate Embed using Google Tag Manager (GTM)?
+**A:** Paste the Embed script and settings as you normally would into the Tag Configuration modal. Next, ensure the "Support document.write" button is toggled on (otherwise data attributes will be stripped out by GTM).
+
+![ada embed GTM](https://user-images.githubusercontent.com/9045634/60745022-5c284b00-9f2d-11e9-939c-6f449334f5c6.jpg "Ada Embed GTM")
+
 ## Versioning
-The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`. 
+The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`.
 
 In rare situations you may wish to lock Embed to a specific version. You can find a list of available Embed releases [here](https://github.com/AdaSupport/embed/releases). Of course, using a static version means that new changes and improvements will not be available to you. Additionally, though we will make every effort to remain backward compatible, we at some point may require you to update your version. In such cases you will be notified by email *insert amount of time here* before we deprecate your version.
+
+## Browser Support
+Embed supports all major browsers, including IE10+, Safari, Chrome, and FF.
 
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
