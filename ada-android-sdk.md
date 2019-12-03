@@ -1,4 +1,4 @@
-# Android SDK (Beta)
+# Android SDK
 
 ## Table of content
 
