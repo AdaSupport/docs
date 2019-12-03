@@ -14,7 +14,7 @@ The latest Ada Embed script.
 
 The Ada iOS SDK is a small framework that is used to embed your Ada Chat bot into your native iOS application.
 
-## [Android SDK (Beta)](/ada-android-sdk.md)
+## [Android SDK](/ada-android-sdk.md)
 
 The Ada Android SDK is a small framework that is used to embed your Ada Chat bot into your native Android application.
 
