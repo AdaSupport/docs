@@ -320,7 +320,7 @@ adaEmbed.getInfo();
 #### `reset(resetSettings)` `@param {Object}`
 Creates a new `chatter` and refreshes the Chat window. `reset` can take an optional object allowing `language`, `metaFields`, and `greeting` to be changed for the new `chatter`. 
 
-By default, `reset` will create a new `chatter`. To keep the existing `chatter` if one exists, `resetChatHistory` can be passed to the object with a value of `false`.
+To prevent creating a new `chatter` (and maintain conversation history), `resetChatHistory` can be passed to the object with a value of `false`.
 
 **Example:**
 ```javascript
