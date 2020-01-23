@@ -142,6 +142,7 @@ Selector | Description
 `#privacy` | The privacy link
 `#messages-list` | The messages container
 `#topBar` | The top bar container above the message list
+`#top-bar-bot-icons` | The container for the bot icons and live chat agent avatars (only for bots that have `Bot Routing or Live Chat`)
 `#info-button` | The settings modal button
 `.g-message` | The base message selector
 `.g-message--is-owned-by-user` | The selector for messages from the end user
