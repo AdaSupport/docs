@@ -26,30 +26,24 @@ The Ada iOS SDK can be installed manually or using CocoaPods. The SDK supports i
 4. In the project settings under General, link the `AdaEmbedFramework.framework` under the Embedded Binaries section. You can do this by dragging the framework from the left side list in the Embedded Binaries list.
 
 ### Option 2: CocoaPods
-> The AdaEmbedFramework CocoaPod is private. In order to use it you must first be added as a collaborator to the EmbedFrameworkSpec repository. If you would like access please reach out to an Ada Bot Specialist.
+> The AdaEmbedFramework CocoaPod is public, however use of the Chat interface is gated. To gain access please reach out to an Ada Bot Specialist.
 
-1. Add the private EmbedFrameworkSpec repo to your local Cocoapods installation with the command:
-```
-pod repo add EmbedFrameworkSpec https://github.com/AdaSupport/EmbedFrameworkSpec.git
-```
-2. Add the AdaEmbedFramework to your Podfile. You will also need to include the source URL of the spec repo.
+1. Add the `AdaEmbedFramework` to your Podfile.
 
 **Example:**
 ```
 platform :ios, '10.0'
 
-target 'CocoaTest' do
+target 'MyApp' do
   use_frameworks!
 
-  source "https://github.com/AdaSupport/EmbedFrameworkSpec.git"
-
-  # Pods for CocoaTest
+  # Pods for MyApp
   pod "AdaEmbedFramework", "~>1.0.0"
 
 end
 ```
 
-3. Install the pod using: 
+2. Install the pod using: 
 ```
 pod install
 ```
