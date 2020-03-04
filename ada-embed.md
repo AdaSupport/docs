@@ -120,6 +120,22 @@ Specifies the Kubernetes cluster to be used. Unless directed by an Ada team memb
 </script>
 ```
 
+#### `crossWindowPersistence` `@type {Object}`
+When set enables the Chat drawer open / close state to persist across windows and page refreshes. When the browser is closed the state is forgotten. `crossWindowPersistence` accepts an object with a boolean `enabled` property, and optional string `domain` property. The `domain` is useful when the setting needs to be enabled across multiple subdomains.
+
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    crossWindowPersistence: {
+      enabled: true,
+      domain: ".mydomain" // Allows the setting to work across subdomains of the given domain
+    },
+    // ...The rest of your settings here
+  }
+</script>
+```
+
 #### `styles` `@type {String}`
 The `styles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below.
 
