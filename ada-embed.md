@@ -50,6 +50,19 @@ Ada Embed supports numerous [settings](#settings) and [actions](#actions) to hel
 ### Settings
 Settings are set on the window object as `window.adaSettings = {}`. A full list of available settings is provided below:
 
+#### `accessKeyOverride` `@type {String}`
+Specifies an override value for the Ada Chat button `accesskey`. If not set the `accesskey` will be given a default value of `"9"`. You may need to use this if you have another element on your site with a conflicting `accesskey`.
+
+**Example:**
+```html
+<script type="text/javascript">
+  window.adaSettings = {
+    accessKeyOverride: "1",
+    // ...The rest of your settings here
+  }
+</script>
+```
+
 #### `adaReadyCallback` `@type {Function}`
 Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`.
 
