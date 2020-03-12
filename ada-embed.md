@@ -64,13 +64,13 @@ Specifies an override value for the Ada Chat button `accesskey`. If not set the 
 ```
 
 #### `adaReadyCallback` `@type {Function}`
-Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`.
+Specifies a callback function to be called when the Embed script has finished setting up. This is especially useful when Embed is loaded `asynchronously`. The callback contains a parameter that case be used to access the boolean value `isRolledOut`.
 
 **Example:**
 ```html
 <script type="text/javascript">
   window.adaSettings = {
-    adaReadyCallback: () => {
+    adaReadyCallback: ({ isRolledOut }) => {
       console.log("Ada Embed is done setting up. Chat support is now available.");
     },
     // ...The rest of your settings here
