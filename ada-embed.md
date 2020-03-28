@@ -136,6 +136,8 @@ Specifies the Kubernetes cluster to be used. Unless directed by an Ada team memb
 #### `crossWindowPersistence` `@type {Object}`
 When set enables the Chat drawer open / close state to persist across windows and page refreshes. When the browser is closed the state is forgotten. `crossWindowPersistence` accepts an object with a boolean `enabled` property, and optional string `domain` property. The `domain` is useful when the setting needs to be enabled across multiple subdomains.
 
+Note: We recommend enabling this feature if your bot uses Ada Glass.
+
 **Example:**
 ```html
 <script type="text/javascript">
@@ -215,6 +217,8 @@ This can be used to customize the greeting messages that new users see. This is 
 
 #### `hideMask` `@type {Boolean}`
 When set to `true`, this will prevent the default mask from appearing over top of your site's content when opened on desktop.
+
+Note: We now ecommend setting the value to `false`. This will allow end-users to navigate the page while the Ada Chat window is open.
 
 **Example:**
 ```html
