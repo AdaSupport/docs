@@ -218,7 +218,7 @@ This can be used to customize the greeting messages that new users see. This is 
 #### `hideMask` `@type {Boolean}`
 When set to `true`, this will prevent the default mask from appearing over top of your site's content when opened on desktop.
 
-Note: We now ecommend setting the value to `false`. This will allow end-users to navigate the page while the Ada Chat window is open.
+Note: We now recommend setting the value to `false`. This will allow end-users to navigate the page while the Ada Chat window is open.
 
 **Example:**
 ```html
