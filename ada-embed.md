@@ -136,6 +136,8 @@ Specifies the Kubernetes cluster to be used. Unless directed by an Ada team memb
 #### `crossWindowPersistence` `@type {Object}`
 When set enables the Chat drawer open / close state to persist across windows and page refreshes. When the browser is closed the state is forgotten. `crossWindowPersistence` accepts an object with a boolean `enabled` property, and optional string `domain` property. The `domain` is useful when the setting needs to be enabled across multiple subdomains.
 
+Note: We recommend enabling this feature if your bot uses Ada Glass.
+
 **Example:**
 ```html
 <script type="text/javascript">
@@ -215,6 +217,8 @@ This can be used to customize the greeting messages that new users see. This is 
 
 #### `hideMask` `@type {Boolean}`
 When set to `true`, this will prevent the default mask from appearing over top of your site's content when opened on desktop.
+
+Note: We now recommend setting the value to `false`. This will allow end-users to navigate the page while the Ada Chat window is open.
 
 **Example:**
 ```html
@@ -430,7 +434,7 @@ Please consult the table of variable name formats and the table of default meta 
 #### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
 #### Q: How do I customize the look of the Ada Chat button?
-**A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
+**A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-embed-button` element in your CSS and overriding existing styles.
 
 Please note that we cannot guarantee custom changes will work with future versions of Ada Embed. In the near future we will support out-of-box client branding to simplify customization.
 
