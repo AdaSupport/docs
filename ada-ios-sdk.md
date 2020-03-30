@@ -132,6 +132,22 @@ Selector | Description
 var adaFramework = AdaWebHost(handle: “ada-example”, styles: "*{font-size: 14px !important;}")
 ```
 
+#### `appScheme: String = ""`
+Can be used to pass the scheme name of the host app. This allows for more robust handling of universal links.
+
+**Example:**
+```swift
+var adaFramework = AdaWebHost(handle: “ada-example”, appScheme: "my-app-scheme")
+```
+
+#### `openWebLinksInSafari: Bool = false`
+External web links now open by default in-app via the SFSafariViewController. To open external links in the Safari browser, pass `openWebLinksInSafari: true` to `AdaWebHost`.
+
+**Example:**
+```swift
+var adaFramework = AdaWebHost(handle: “ada-example”, openWebLinksInSafari: true)
+```
+
 ### Methods
 #### `launchModalWebSupport(from viewController: UIViewController)`
 Launches Ada Chat in a modal view overtop your current view.
@@ -167,6 +183,22 @@ adaFramework.setMetaFields([
     "lastName": "Doe",
     "tier": "pro"
 ])
+```
+
+#### `reset()`
+Can be used to create a new `chatter` and refresh the Chat window. 
+
+**Example:**
+```swift
+adaFramework.reset()
+```
+
+#### `deleteHistory()`
+Deletes the `chatter` used to fetch conversation logs for an end-user from storage. When a user opens a new Chat window a new `chatter` will be generated.
+
+**Example:**
+```swift
+adaFramework.deleteHistory();
 ```
 
 ## Questions
