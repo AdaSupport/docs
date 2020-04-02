@@ -28,11 +28,11 @@ Android SDK repository. To do that please reach out to an Ada Bot Specialist.
 To integrate the SDK, first add the following code to the project level 
 `build.gradle`:
 ```groovy
-maven {
-    url "https://adasupport.bintray.com/Android-SDK"
-    credentials {
-        username = "bintray_user_name"
-        password = "bintray_user_api_key"
+allprojects {
+    repositories {
+        maven {
+            url "https://adasupport.bintray.com/Android-SDK"
+        }
     }
 }
 ```
