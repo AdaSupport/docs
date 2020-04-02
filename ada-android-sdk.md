@@ -41,11 +41,11 @@ you can find in your profile settings.
 
 Next add core dependency to application level `build.gradle`:
 ```groovy
-//  core 
-implementation 'support.ada.embed:android-sdk:1.0.0'
+//  if your project has artifacts within the androidx namespace
+implementation 'support.ada.embed:android-sdk-appcompat:1.1.2'
 
-//  if you want to use AdaEmbedActivity or AdaEmbedDialog
-implementation 'support.ada.embed:android-sdk-appcompat:1.0.0'
+//  if your project uses Android Support Library
+implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.1.2'
 ```
 
 ## Chat Frame Creation 
