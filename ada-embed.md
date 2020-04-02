@@ -279,6 +279,7 @@ Name | Type | Description | Example
 - introShown
 - created
 - zdSession
+- last_answer_id
 
 **Note 2**: Because unsanitized meta variable names are sanitized by Ada's backend, meta variable names should not include whitespace, emojis, special characters or periods.
 
