@@ -1,4 +1,7 @@
-# Ada Embed
+# Embed1
+
+| Attention: Embed1 is being replaced by Embed2! If you already use Embed1, don't worry - we still plan to support it past 2020 (you will be given fair warning when it is time to upgrade). If you have no existing Embed integration, or want to upgrade to our latest and greatest script, great! You can find the docs in [our new documentation hub](https://adasupport.github.io/documentation/). |
+| --- |
 
 > Ada Embed is a small JavaScript application that embeds your **Ada** Chat bot into your web page.
 
