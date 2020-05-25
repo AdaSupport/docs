@@ -225,6 +225,14 @@ Selector | Description
 app:ada_styles="*{font-size: 14px !important;}"
 ```
 
+#### Third Party Cookies
+SDK allows the use of third-party cookies for chat operation. To do this, you must set  
+`acceptThirdPartyCookies` property to `true`.
+
+```xml
+app:ada_accept_third_party_cookies = "true"
+```
+
 #### Builder Configuration
 You can also configure the Ada bot programmatically using the`AdaEmbedView.Settings` class.
 
@@ -235,6 +243,7 @@ val adaSettings = AdaEmbedView.Settings.Builder("ada-example")
     .styles("*{font-size: 14px !important;}")
     .language("en")
     .metaFields(metaFieldsMap)
+    .acceptThirdPartyCookies(true)
     .build()
 ```
 ## Actions
