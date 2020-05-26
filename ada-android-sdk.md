@@ -226,8 +226,9 @@ app:ada_styles="*{font-size: 14px !important;}"
 ```
 
 #### Third Party Cookies
-SDK allows the use of third-party cookies for chat operation. To do this, you must set  
-`acceptThirdPartyCookies` property to `true`.
+The SDK allows you to use third-party cookies. **Won't affect [Build.VERSION_CODES.KITKAT](https://developer.android.com/reference/android/os/Build.VERSION_CODES#KITKAT) or below.**
+Apps that target [Build.VERSION_CODES.KITKAT](https://developer.android.com/reference/android/os/Build.VERSION_CODES#KITKAT) default to allowing third party cookies.
+Apps targeting [Build.VERSION_CODES.LOLLIPOP](https://developer.android.com/reference/android/os/Build.VERSION_CODES#LOLLIPOP) or later default to disallowing third party cookies.
 
 ```xml
 app:ada_accept_third_party_cookies = "true"
