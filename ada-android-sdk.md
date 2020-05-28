@@ -234,6 +234,24 @@ Apps targeting [Build.VERSION_CODES.LOLLIPOP](https://developer.android.com/refe
 app:ada_accept_third_party_cookies = "true"
 ```
 
+#### Auth Token Callback
+The SDK allows you to periodically pass JWT tokens.
+To do this you need to setup `authTokenCallback` to `AdaEmbedView`.
+If SDK requests JWT token this callback will be fired.
+```kotlin
+adaView.authTokenCallback = {
+    getToken() // this functions returns String
+}
+```
+For `AdaEmbedDialog`:
+```kotlin
+val adaDialog = AdaEmbedDialog()
+adaDialog.authTokenCallback = {
+    getToken() // this functions returns String
+}
+```
+Note, the callback should provide token synchronously.
+
 #### Builder Configuration
 You can also configure the Ada bot programmatically using the`AdaEmbedView.Settings` class.
 
