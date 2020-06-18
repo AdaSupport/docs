@@ -264,7 +264,7 @@ val eventCallback: (event: Event) -> Unit = {
 
 adaView.addEventCallback("event_name", eventCallback)
 ```
-or you can omit event name, in this case the callback will catch all events:
+Or you can omit event name, in this case, the default event name will be used as ``` "*" ``` and the callback will catch all events:
 ```kotlin
 adaView.addEventCallback(callback = eventCallback)
 ```
@@ -275,6 +275,10 @@ adaView.removeEventCallback(eventCallback)
 To remove all callbacks associated with the event name:
 ```kotlin
 adaView.removeEventCallbacks("event_name")
+```
+Or you can omit event name to remove all callbacks associated with default event name:
+```kotlin
+adaView.removeEventCallbacks()
 ```
 
 #### Builder Configuration
