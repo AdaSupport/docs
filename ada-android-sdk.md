@@ -252,6 +252,31 @@ adaDialog.zdChatterAuthCallback = {
 ```
 Note, the callback should provide token synchronously.
 
+#### Event Callback
+Used in conjunction with Custom JavaScript Event Blocks to trigger
+specified callbacks as part of a conversation.
+
+To add callback:
+```kotlin
+val eventCallback: (event: Event) -> Unit = {
+    //some action with event
+}
+
+adaView.addEventCallback("event_name", eventCallback)
+```
+or you can omit event name, in this case the callback will catch all events:
+```kotlin
+adaView.addEventCallback(callback = eventCallback)
+```
+To remove callback:
+```kotlin
+adaView.removeEventCallback(eventCallback)
+```
+To remove all callbacks associated with the event name:
+```kotlin
+adaView.removeEventCallbacks("event_name")
+```
+
 #### Builder Configuration
 You can also configure the Ada bot programmatically using the`AdaEmbedView.Settings` class.
 
