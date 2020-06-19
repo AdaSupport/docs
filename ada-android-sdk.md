@@ -52,10 +52,10 @@ allprojects {
 Next, add the dependency to the application level `build.gradle`:
 ```groovy
 //  if your project has artifacts within the androidx namespace
-implementation 'support.ada.embed:android-sdk-appcompat:1.2.1'
+implementation 'support.ada.embed:android-sdk-appcompat:1.3.0'
 
 //  if your project uses Android Support Library
-implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.2.1'
+implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.0'
 ```
 
 ## Chat Frame Creation 
