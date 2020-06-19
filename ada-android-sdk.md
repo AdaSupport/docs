@@ -280,6 +280,7 @@ Or you can omit event name to remove all callbacks associated with default event
 ```kotlin
 adaView.removeEventCallbacks()
 ```
+You can also apply Event callbacks for `AdaEmbedDialog` in the same way as described above.
 
 #### Builder Configuration
 You can also configure the Ada bot programmatically using the`AdaEmbedView.Settings` class.
