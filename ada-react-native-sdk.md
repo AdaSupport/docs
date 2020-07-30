@@ -1,13 +1,14 @@
 # React Native SDK
 
 ## Table of content
-
 1. [Prerequisites](#prerequisites)
 2. [Integration](#integration) 
 3. [Usage](#usage) 
-4. [Props](#props) 
-5. [Actions](#actions) 
-6. [Questions](#questions)
+4. [Configuring Your Bot](#configuring-your-bot)
+   - [Props](#props)
+   - [Actions](#actions)
+   - [Send files](#send-files)
+7. [Questions](#questions)
 
 ## Prerequisites
 This document is intended for bot specialists and developers with working knowledge of React Native development. It also assumes you have a React Native app into which you plan to integrate the Ada React Native SDK.
@@ -34,7 +35,10 @@ class MyComponent extends React.Component {
 }
 ```
 
-## Props
+## Configuring Your Bot
+Ada Embed supports numerous [props](#props) and [actions](#actions) to help you customize the look and behaviour of your bot.
+
+### Props
 
 #### Cluster `type: String`
 Specifies the Kubernetes cluster to be used. Unless directed by an Ada team member, you will not need to change this value.
@@ -132,7 +136,7 @@ eventCallbacks={{
 }}
 ```
 
-## Actions
+### Actions
 Actions can be called directly to a component without using state/props to trigger a re-render of the entire subtree, using reference. To create reference:
 ```
 // ...
@@ -180,6 +184,47 @@ this.adaEmbedView.setMetaFields({
     name: "Some name",
     age: 30
 });
+```
+
+### Send files
+IOS
+
+For iOS, all you need to do is specify the permissions in your `ios/[project]/Info.plist` file:
+
+Photo capture:
+
+```
+<key>NSCameraUsageDescription</key>
+<string>Take pictures for certain activities</string>
+```
+
+Gallery selection:
+
+```
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Select pictures for certain activities</string>
+```
+
+Video recording:
+
+```
+<key>NSMicrophoneUsageDescription</key>
+<string>Need microphone access for recording videos</string>
+```
+
+Android
+
+Add permission in AndroidManifest.xml:
+
+```
+<manifest ...>
+  ......
+
+  <!-- this is required only for Android 4.1-5.1 (api 16-22)  -->
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  ......
+</manifest>
 ```
 
 ## Questions
