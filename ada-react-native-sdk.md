@@ -30,7 +30,7 @@ import AdaEmbedView from '@ada-support/react-native-sdk';
 // ...
 class MyComponent extends React.Component {
   render() {
-    return <AdaEmbedView handle={`ada-example`}/>;
+    return <AdaEmbedView handle="ada-example"/>;
   }
 }
 ```
@@ -72,7 +72,10 @@ language="en"
 Used to pass meta information about a Chatter. This can be useful for tracking information about your end users, as well as for personalizing their experience. For example, you may wish to track the phone_number and name for conversation attribution. Once set, this information can be accessed in the email attachment from Handoff Form submissions, or via the Chatter modal in the Conversations page of your Ada dashboard. 
 
 ```
-metaFields={{name: "Some name", age: 30}}
+metaFields={{
+    name: "Some name",
+    age: 30
+}}
 ```
 
 #### Styles `type: String`
@@ -125,14 +128,20 @@ zdChatterAuthCallback={callback => {
 }}
 ```
 
-#### Event Callback `type: Object`
+#### Event Callbacks `type: Object`
 Used in conjunction with Custom JavaScript Event Blocks to trigger specified callbacks as part of a conversation.
 
-Callback has type: `{ [eventName: string]: (jsEvent: object) => void }`. You can use name as ``` "*" ``` in this case this function will catch all event.
+Callback has type: `{ [eventName: string]: (jsEvent: object) => void }`. You can use name as ``` "*" ``` in this case the function will catch all events.
 ```
 eventCallbacks={{
-    ["*"]: (event) => {console.log(event.event_name)},
-    my_event_name: (event) => {console.log(event.event_name)}
+    "*": (event) => {
+        //This function will catch all events
+        console.log(event.event_name)
+    },
+    my_event_name: (event) => {
+        //This function will catch only events with specific name (my_event_name)
+        console.log(event.event_name)
+    }
 }}
 ```
 
