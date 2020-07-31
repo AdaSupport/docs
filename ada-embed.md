@@ -468,6 +468,9 @@ button.ada-embed-button {
 
 ![ada embed GTM](https://user-images.githubusercontent.com/9045634/60745022-5c284b00-9f2d-11e9-939c-6f449334f5c6.jpg "Ada Embed GTM")
 
+#### Q: How do I host the Embed script on my own domain?
+**A:** Sometimes you may need to host the Embed script on your own domain. To do this, head to [https://static.ada.support/embed.js](https://static.ada.support/embed.js). Next, save the file (Command / Control + S). You can now upload this file to your CDN.
+
 ## Versioning
 The Embed script found above is *versionless*. This means that the latest stable features will be made available to you without any changes to your code. Should you wish to test upcoming features before they are released to production, you may make use of `https://static.ada.support/embed.beta.js`.
 
