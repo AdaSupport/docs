@@ -81,33 +81,6 @@ Specifies a callback function to be called when the Embed script has finished se
 </script>
 ```
 
-#### `analyticsCallback` `@type {Function}`
-To gather analytic event data, clients must pass an `analyticsCallback` function to the Embed `adaSettings` object when instantiating their bot. Make sure you have `analyticsCallback` feature enabled on your bot - you can check this with your account manager.
-
-**Example:**
-```html
-<script type="text/javascript">
-  window.adaSettings = {
-    analyticsCallback: (event) => {
-      // Here is where you can forward this event to Adobe (or elsewhere)
-      console.log(event);
-    },
-    // ...The rest of your settings here
-  }
-</script>
-```
-
-**Example Event:**
-```
-{
-  chatter_id: "5d9f84b2a35763fc71cb7bf",
-  session_id: "59f84b22c4683df7c38bf69",
-  answer_name: "Greeting",
-  event_name: "answer presented",
-  authenticated: false
-}
-```
-
 #### `chatterTokenCallback` `@type {Function}`
 Specifies a callback function to be called when the Chatter has been set. The Chatter token is passed to the callback as an argument.
 
