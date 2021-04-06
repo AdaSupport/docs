@@ -52,10 +52,10 @@ allprojects {
 Next, add the dependency to the application level `build.gradle`:
 ```groovy
 //  if your project has artifacts within the androidx namespace
-implementation 'support.ada.embed:android-sdk-appcompat:1.3.1'
+implementation 'support.ada.embed:android-sdk-appcompat:1.3.3'
 
 //  if your project uses Android Support Library
-implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.1'
+implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.3'
 ```
 
 ## Chat Frame Creation 
@@ -236,7 +236,8 @@ app:ada_accept_third_party_cookies = "true"
 
 #### Auth Token Callback
 The SDK allows you to periodically pass JWT tokens.
-To do this you need to setup `zdChatterAuthCallback` to `AdaEmbedView`.
+To do this you need to setup `zdChatterAuthCallback` by passing the callback 
+to `AdaEmbedView` using a lambda expression to set the property. 
 If SDK requests JWT token this callback will be fired.
 ```kotlin
 adaView.zdChatterAuthCallback = {
@@ -293,6 +294,7 @@ val adaSettings = AdaEmbedView.Settings.Builder("ada-example")
     .language("en")
     .metaFields(metaFieldsMap)
     .acceptThirdPartyCookies(true)
+    .loadTimeoutMillis(30000)
     .build()
 ```
 ## Actions
@@ -350,10 +352,47 @@ adaDialog.deleteHistory()
 adaDialog.reset()
 ```
 
+## Error Handling
+If the `WebView` fails to load within the timeout period (default is 30000 milliseconds) you may want to handle this as an error. 
+To do this you can set `webViewLoadingErrorCallback` by passing the callback to `AdaEmbedView` using a lambda expression to set the property. 
+This function will be called if there was an error loading the `WebView` or if it didn't finish loading in the specified timeout period.
+
+**Example:**
+```kotlin
+private fun logWebViewLoadError() {
+    // Write any logic for the WebView not loading here
+    Log.d("Webview Error", "Error Loading Webview")
+}
+
+adaView.webViewLoadingErrorCallback = { logWebViewLoadError() }
+```
+
+If you want to adjust the timeout length to trigger an error you can either specify this in your XML settings with the `app:ada_load_timeout` attribute:
+```xml
+<support.ada.embed.widget.AdaEmbedView
+            android:id="@+id/xml_ada_view"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            app:ada_handle="@string/ada_handle_res"
+            app:ada_load_timeout="30000"
+            app:ada_language="en"
+            app:ada_metaFields="@raw/metafields"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+```
+
+Or as part of the AdaEmbedView builder
+```kotlin
+        AdaEmbedView.Settings.Builder("ada-example")
+                .language("en")
+                .loadTimeoutMillis(20000)
+                .build()
+
+```
+
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
-
-
 
 
 
