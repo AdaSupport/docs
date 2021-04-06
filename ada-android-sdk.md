@@ -353,9 +353,9 @@ adaDialog.reset()
 ```
 
 ## Error Handling
-If the Webview fails to load within the timeout period (default is 30000 milliseconds) you may want to handle this as an error. 
+If the `WebView` fails to load within the timeout period (default is 30000 milliseconds) you may want to handle this as an error. 
 To do this you can set `webViewLoadingErrorCallback` by passing the callback to `AdaEmbedView` using a lambda expression to set the property. 
-This function will be called if there was an error loading the webview or if it didn't finish loading in the specified timeout period.
+This function will be called if there was an error loading the `WebView` or if it didn't finish loading in the specified timeout period.
 
 **Example:**
 ```kotlin
