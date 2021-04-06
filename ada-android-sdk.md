@@ -381,7 +381,7 @@ If you want to adjust the timeout length to trigger an error you can either spec
             app:layout_constraintTop_toTopOf="parent" />
 ```
 
-Or as a setting as part of the AdaEmbedView Builder
+Or as part of the AdaEmbedView builder
 ```kotlin
         AdaEmbedView.Settings.Builder("ada-example")
                 .language("en")
@@ -392,7 +392,6 @@ Or as a setting as part of the AdaEmbedView Builder
 
 ## Questions
 Need some help? Get in touch with us at [help@ada.support](mailto:help@ada.support).
-
 
 
 
