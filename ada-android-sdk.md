@@ -52,10 +52,10 @@ allprojects {
 Next, add the dependency to the application level `build.gradle`:
 ```groovy
 //  if your project has artifacts within the androidx namespace
-implementation 'support.ada.embed:android-sdk-appcompat:1.3.1'
+implementation 'support.ada.embed:android-sdk-appcompat:1.3.3'
 
 //  if your project uses Android Support Library
-implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.1'
+implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.3'
 ```
 
 ## Chat Frame Creation 
@@ -293,6 +293,7 @@ val adaSettings = AdaEmbedView.Settings.Builder("ada-example")
     .language("en")
     .metaFields(metaFieldsMap)
     .acceptThirdPartyCookies(true)
+    .loadTimeoutMillis(30000)
     .build()
 ```
 ## Actions
@@ -348,6 +349,45 @@ val adaDialog = supportFragmentManager.findFragmentByTag(AdaEmbedDialog.TAG) as 
 adaDialog.setMetaFields(metaFields)
 adaDialog.deleteHistory()
 adaDialog.reset()
+```
+
+## Error Handling
+If the Webview fails to load within time (default is 30000 milliseconds) you may want to handle the error. 
+You can set this up by setting `webViewLoadingErrorCallback` to `AdaEmbedView`. This function will be called if there
+was an error loading the webview or if it didn't finish loading in the specified timeout period.
+
+**Example:**
+```kotlin
+private fun logWebViewLoadError() {
+    // Write any logic for the WebView not loading here
+    Log.d("Webview Error", "Error Loading Webview")
+}
+
+adaView.webViewLoadingErrorCallback = { logWebViewLoadError() }
+```
+
+If you want to adjust the timeout length to trigger an error you can either specify this in your XML settings with the `app:ada_load_timeout` attribute:
+```xml
+<support.ada.embed.widget.AdaEmbedView
+            android:id="@+id/xml_ada_view"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            app:ada_handle="@string/ada_handle_res"
+            app:ada_load_timeout="30000"
+            app:ada_language="en"
+            app:ada_metaFields="@raw/metafields"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+```
+
+Or as a setting as part of the AdaEmbedView Builder
+```kotlin
+        AdaEmbedView.Settings.Builder("ada-example")
+                .language("en")
+                .loadTimeoutMillis(20000)
+                .build()
+
 ```
 
 ## Questions
