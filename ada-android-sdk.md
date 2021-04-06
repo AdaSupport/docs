@@ -236,7 +236,8 @@ app:ada_accept_third_party_cookies = "true"
 
 #### Auth Token Callback
 The SDK allows you to periodically pass JWT tokens.
-To do this you need to setup `zdChatterAuthCallback` to `AdaEmbedView`.
+To do this you need to setup `zdChatterAuthCallback` by passing the callback 
+to `AdaEmbedView` using a lambda expression to set the property. 
 If SDK requests JWT token this callback will be fired.
 ```kotlin
 adaView.zdChatterAuthCallback = {
@@ -353,8 +354,8 @@ adaDialog.reset()
 
 ## Error Handling
 If the Webview fails to load within the timeout period (default is 30000 milliseconds) you may want to handle this as an error. 
-You can set this up by setting `webViewLoadingErrorCallback` to `AdaEmbedView`. This function will be called if there
-was an error loading the webview or if it didn't finish loading in the specified timeout period.
+To do this you can set `webViewLoadingErrorCallback` by passing the callback to `AdaEmbedView` using a lambda expression to set the property. 
+This function will be called if there was an error loading the webview or if it didn't finish loading in the specified timeout period.
 
 **Example:**
 ```kotlin
