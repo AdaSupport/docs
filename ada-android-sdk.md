@@ -37,14 +37,14 @@ Finally, add this line to your app `build.gradle` file:
 ```
 
 #### Gradle Integration
-The Ada Android SDK can be installed using Gradle from the Ada Support Bintray repository.
+The Ada Android SDK can be installed using Gradle from the Ada Support Gitlab repository.
 
 To integrate the SDK, first add the following code to the project level `build.gradle` file:
 ```groovy
 allprojects {
     repositories {
         maven {
-            url "https://adasupport.bintray.com/Android-SDK"
+            url "https://gitlab.com/api/v4/projects/25892134/packages/maven"
         }
     }
 }        
@@ -52,10 +52,10 @@ allprojects {
 Next, add the dependency to the application level `build.gradle`:
 ```groovy
 //  if your project has artifacts within the androidx namespace
-implementation 'support.ada.embed:android-sdk-appcompat:1.3.3'
+implementation 'support.ada.embed:android-sdk-appcompat:1.3.7'
 
 //  if your project uses Android Support Library
-implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.3'
+implementation 'support.ada.embed:android-sdk-appcompat-legacy:1.3.7'
 ```
 
 ## Chat Frame Creation 
