@@ -372,6 +372,9 @@ Please consult the table of variable name formats and the table of default meta 
 
 #### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
+#### Q: How do I customize the look of the Ada Chat button?
+**A:** Basic customization, such as background colour, can be modified from the **Settings > Integrations** page of your Ada dashboard in the configuration settings of **Ada Web Chat**.
+
 #### Q: How do I have the bot only appear during certain hours?
 **A:** If the bot should only appear during certain times, you will need to wrap your Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
 
