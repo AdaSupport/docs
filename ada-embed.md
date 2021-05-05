@@ -379,7 +379,7 @@ Please consult the table of variable name formats and the table of default meta 
 **A:** If the bot should only appear during certain times, you will need to wrap your Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
 
 #### Q: How do I customize the look and feel of Ada Chat?
-**A:** Basic customization, such as client tint colour, can be modified from the **Settings > General** page of your Ada dashboard.
+**A:** Basic customization, such as client tint colour, can be modified from the **Settings > Integrations** page of your Ada dashboard in the configuration settings of **Ada Web Chat**.
 
 #### Q: Ada Embed is rendered as soon as the page loads. How can I delay rendering?
 **A:** The [Embed script](#2-embed-script) features a useful data attribute called `data-lazy`. When defined on your script, Ada Embed will not be triggered until you manually call [adaEmbed.start()](#startadasettings-param-object).
