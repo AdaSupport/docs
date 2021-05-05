@@ -101,37 +101,6 @@ Used to pass meta information about a Chatter. This can be useful for tracking i
 var adaFramework = AdaWebHost(handle: “ada-example”, metafields: ["tier": "pro"])
 ```
 
-#### `styles: String = ""`
-The `styles` setting can be used to override default styles inside the Chat bot. The value of the string should be the CSS rule-set you wish to apply inside the Chat UI. A list of CSS selectors available for targetting can be found in the table below.
-
-| WARNING: We do not recommend assigning styles to classes you inspect in the DOM. Class naming is subject to change, and can cause your custom styles to break. |
-| --- |
-
-Selector | Description
---- | ---
-`#message-container` | The outer wrapper, containing the top bar, message list, and input bar
-`#ada-close-button` | The button used to close the Web Chat window
-`#input-bar` | The bottom wrapper, containg the textarea element, send button, and bottom text
-`#message-input` | The textarea inside the input bar, used for user input
-`#clear-message` | The button used to clear text from the message input
-`#send-button ` | The button for submitting the user input
-`#status-bar` | The bottom text inside the input bar
-`#close-info-button` | The button to close the settings modal
-`#language-selector` | The language select container
-`#language-picker` | The language select element
-`#terms-of-service` | The terms of service link
-`#privacy` | The privacy link
-`#messages-list` | The messages container
-`#topBar` | The top bar container above the message list
-`#info-button` | The settings modal button
-`.g-message` | The base message selector
-`.g-message--is-owned-by-user` | The selector for messages from the end user
-
-**Example:**
-```swift
-var adaFramework = AdaWebHost(handle: “ada-example”, styles: "*{font-size: 14px !important;}")
-```
-
 #### `appScheme: String = ""`
 Can be used to pass the scheme name of the host app. This allows for more robust handling of universal links.
 

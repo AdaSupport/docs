@@ -80,7 +80,6 @@ Parameter | Type | Description
 <script type="text/javascript">
   const adaBot = new AdaChaperone('client-handle', {
     "parentElement": "myElement",
-    "customStyles": "*{color:blue !important;}",
     "private": true
   }, () => {
     console.log("Callback triggered!");
@@ -109,42 +108,6 @@ Specifies a callback function to be called when the Chatter has been set. The Ch
 
 #### `cluster` `@type {String}`
 Specifies the Kubernetes cluster to be used. Unless directed by an Ada team member, you will not need to change this value.
-
-
-#### `customStyles` `@type {String}`
-The `customStyles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below.
-
-| WARNING: We do not recommend assigning styles to classes you inspect in the DOM. Class naming is subject to change, and can cause your custom styles to break. |
-| --- |
-
-Selector | Description
---- | ---
-`#message-container` | The outer wrapper, containing the top bar, message list, and input bar
-`#ada-close-button` | The button used to close the Web Chat window
-`#input-bar` | The bottom wrapper, containg the textarea element, send button, and bottom text
-`#message-input` | The textarea inside the input bar, used for user input
-`#clear-message` | The button used to clear text from the message input
-`#send-button ` | The button for submitting the user input
-`#status-bar` | The bottom text inside the input bar
-`#close-info-button` | The button to close the settings modal
-`#language-selector` | The language select container
-`#language-picker` | The language select element
-`#terms-of-service` | The terms of service link
-`#privacy` | The privacy link
-`#messages-list` | The messages container
-`#topBar` | The top bar container above the message list
-`#info-button` | The settings modal button
-`.g-message` | The base message selector
-`.g-message--is-owned-by-user` | The selector for messages from the end user
-
-**Example:**
-```html
-<script type="text/javascript">
-  const adaBot = new AdaChaperone('client-handle', {
-    "customStyles": "*{font-size: 14px !important;}#message-input{background-color: white; border: 1px solid #c1c1c1;}"
-  });
-</script>
-```
 
 #### `greetingHandle` `@type {String}`
 This can be used to customize the greeting messages that new users see. This is useful for setting page-specific greetings across your app. The `greetingHandle` should correspond to the title of the Answer you would like to use.
@@ -287,26 +250,11 @@ Key | Value | Type | Description
 `*` | Any other key is treated as a meta field | Query String | Used to pass meta informaton about an end user
 `private` | `true` or 1 | Query String | Used to forget the Chat session on refresh.
 
-#### Q: How do I customize the look of the Ada Chat button?
-**A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-chat-button` element in your CSS and overriding existing styles.
-
-Please note that we cannot guarantee custom changes will work with future versions of Chaperone.
-
-**Example:**
-
-```
-// This line in your CSS
-button.ada-chat-button {
-  left: 24px; // This will position the Chat button on the left side of the screen
-}
-```
-[**You can experiment with a working example here.**](https://jsfiddle.net/2jh94oru/3/)
-
 #### Q: How do I have the bot only appear during certain hours?
 **A:** If the bot should only appear during certain times, you will need to wrap you Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
 
 #### Q: How do I customize the look and feel of Ada Chat?
-**A:** Basic customization, such as client tint colour, can be modified from the **Settings > General** page of your Ada dashboard. If you require additional customization, you can make use of the [customStyles](#customstyles-type-string) Chaperone option above.
+**A:** Basic customization, such as client tint colour, can be modified from the **Settings > General** page of your Ada dashboard.
 
 ## Versioning
 Currently, the embed script for Ada Chaperone is versioned. This means that in order to receive new Chaperone updates you will need to upgrade to the latest version. The latest embed script can always be found within this document, or within the Chat modal of the **Settings > Platforms** page in your Ada dashboard.

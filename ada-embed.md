@@ -127,43 +127,6 @@ Note: We recommend enabling this feature if your bot uses Ada Glass.
 </script>
 ```
 
-#### `styles` `@type {String}`
-The `styles` option can be used to override default styles inside the Web Chat iFrame. The value of the string should be the CSS rule-set you wish to apply inside the iFrame. A list of CSS selectors available for targetting can be found in the table below.
-
-| WARNING: We do not recommend assigning styles to classes you inspect in the DOM. Class naming is subject to change, and can cause your custom styles to break. |
-| --- |
-
-Selector | Description
---- | ---
-`#message-container` | The outer wrapper, containing the top bar, message list, and input bar
-`#ada-close-button` | The button used to close the Web Chat window
-`#input-bar` | The bottom wrapper, containg the textarea element, send button, and bottom text
-`#message-input` | The textarea inside the input bar, used for user input
-`#clear-message` | The button used to clear text from the message input
-`#send-button ` | The button for submitting the user input
-`#status-bar` | The bottom text inside the input bar
-`#close-info-button` | The button to close the settings modal
-`#language-selector` | The language select container
-`#language-picker` | The language select element
-`#terms-of-service` | The terms of service link
-`#privacy` | The privacy link
-`#messages-list` | The messages container
-`#topBar` | The top bar container above the message list
-`#top-bar-bot-icons` | The container for the bot icons and live chat agent avatars (only for bots that have `Bot Routing or Live Chat`)
-`#info-button` | The settings modal button
-`.g-message` | The base message selector
-`.g-message--is-owned-by-user` | The selector for messages from the end user
-
-**Example:**
-```html
-<script type="text/javascript">
-  window.adaSettings = {
-    styles: "*{font-size: 14px !important;}#message-input{background-color: white; border: 1px solid #c1c1c1;}",
-    // ...The rest of your settings here
-  }
-</script>
-```
-
 #### `dragAndDrop` `@type {Boolean}`
 When set to `true`, this will allow users to move the embed script button around the screen. Intros messages
 will also move along with the button.
@@ -278,7 +241,6 @@ Name | Description | Will be sanitized | Sanitized version
 By default, the Web Chat will open as an overlay over your site on mobile devices. If you'd prefer to have it open in a new window, set this option to `false`. Note that setting to `false` will prevent the following features from working:
 - [adaReadyCallback](#adareadycallback-type-function)
 - [chatterTokenCallback](#chattertokencallback-type-function)
-- [styles](#styles-type-string)
 - [deleteHistory](#deleteHistory)
 - [reset](#reset)
 - [setMetaFields](#setmetafieldsmetafields-param-object)
@@ -411,27 +373,13 @@ Please consult the table of variable name formats and the table of default meta 
 #### Sample code for iOS (Swift): [Here](https://gist.github.com/brandonmowat/60154e81744f48866d2a1fba021f89a2)
 
 #### Q: How do I customize the look of the Ada Chat button?
-**A:** There are many ways to do this, and ultimately this will be up to your team's developers. That being said, we recommend targetting the `button.ada-embed-button` element in your CSS and overriding existing styles.
-
-Please note that we cannot guarantee custom changes will work with future versions of Ada Embed. In the near future we will support out-of-box client branding to simplify customization.
-
-**Example:**
-
-```
-// This line in your CSS
-button.ada-embed-button {
-  // This will make the chat button appear larger
-  width: 60px !important;
-  height: 60px !important;
-}
-```
-[**You can experiment with a working example here.**](https://jsfiddle.net/80enprh6/)
+**A:** Basic customization, such as background colour, can be modified from the **Settings > Integrations** page of your Ada dashboard in the configuration settings of **Ada Web Chat**.
 
 #### Q: How do I have the bot only appear during certain hours?
 **A:** If the bot should only appear during certain times, you will need to wrap your Ada scripts in a condition to check if the user is within scheduled operation hours. If you only require that certain messages be within a scheduled time window, we recommend that you make use of Scheduled Blocks in the **Answer** page of your Ada dashboard.
 
 #### Q: How do I customize the look and feel of Ada Chat?
-**A:** Basic customization, such as client tint colour, can be modified from the **Settings > General** page of your Ada dashboard. If you require additional customization, you can make use of the [styles](#styles-type-string) Embed option above.
+**A:** Basic customization, such as client tint colour, can be modified from the **Settings > Integrations** page of your Ada dashboard in the configuration settings of **Ada Web Chat**.
 
 #### Q: Ada Embed is rendered as soon as the page loads. How can I delay rendering?
 **A:** The [Embed script](#2-embed-script) features a useful data attribute called `data-lazy`. When defined on your script, Ada Embed will not be triggered until you manually call [adaEmbed.start()](#startadasettings-param-object).
