@@ -78,13 +78,6 @@ metaFields={{
 }}
 ```
 
-#### Styles `type: String`
-The `styles` option can be used to override default styles inside of Web Chat. The value of the string should be the CSS rule-set you wish to apply inside the Web Chat iFrame. Note that the `ui_customization` feature flag is required to use this feature.
-
-```
-styles="*{font-size: 14px !important;}"
-```
-
 #### Third Party Cookies (Android only) `type: Boolen`
 The SDK allows you to use third-party cookies. Use a boolean value to enable third party cookies in the AdaEmbedView. This feature need only be enabled for Android Lollipop and above, as third party cookies are enabled by default on Android Kitkat and below. The default value is `false`.
 

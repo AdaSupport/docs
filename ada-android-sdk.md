@@ -194,37 +194,6 @@ You can also set "meta fields" using XML. For this, you need to create a JSON fi
 app:ada_metaFields="@raw/metafields"
 ```
 
-#### Styles
-The `styles` setting can be used to override default styles inside the Chat bot. The value of the string should be the CSS rule-set you wish to apply inside the Chat UI. A list of CSS selectors available for 
-targetting can be found in the table below.
-
-| WARNING: We do not recommend assigning styles to classes you inspect in the DOM. Class naming is subject to change, and can cause your custom styles to break. |
-| --- |
-
-Selector | Description
---- | ---
-`#message-container` | The outer wrapper, containing the top bar, message list, and input bar
-`#ada-close-button` | The button used to close the Web Chat window
-`#input-bar` | The bottom wrapper, containg the textarea element, send button, and bottom text
-`#message-input` | The textarea inside the input bar, used for user input
-`#clear-message` | The button used to clear text from the message input
-`#send-button ` | The button for submitting the user input
-`#status-bar` | The bottom text inside the input bar
-`#close-info-button` | The button to close the settings modal
-`#language-selector` | The language select container
-`#language-picker` | The language select element
-`#terms-of-service` | The terms of service link
-`#privacy` | The privacy link
-`#messages-list` | The messages container
-`#topBar` | The top bar container above the message list
-`#info-button` | The settings modal button
-`.g-message` | The base message selector
-`.g-message--is-owned-by-user` | The selector for messages from the end user
-
-```xml
-app:ada_styles="*{font-size: 14px !important;}"
-```
-
 #### Third Party Cookies
 The SDK allows you to use third-party cookies. **Won't affect [Build.VERSION_CODES.KITKAT](https://developer.android.com/reference/android/os/Build.VERSION_CODES#KITKAT) or below.**
 Apps that target [Build.VERSION_CODES.KITKAT](https://developer.android.com/reference/android/os/Build.VERSION_CODES#KITKAT) default to allowing third party cookies.
@@ -290,7 +259,6 @@ You can also configure the Ada bot programmatically using the`AdaEmbedView.Setti
 val adaSettings = AdaEmbedView.Settings.Builder("ada-example")
     .cluster("ca")
     .greetings("5c59aaabd8269e0339979014")
-    .styles("*{font-size: 14px !important;}")
     .language("en")
     .metaFields(metaFieldsMap)
     .acceptThirdPartyCookies(true)
